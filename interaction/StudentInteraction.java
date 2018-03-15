@@ -31,7 +31,7 @@ public class StudentInteraction
     this.password = password;
   }
   
-  public StudentInteraction(String firstName, String lastNmae, String password)
+  public StudentInteraction(String firstName, String lastName, String password)
   {
     this.firstName = firstName;
     this.lastName = lastName;
