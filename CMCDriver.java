@@ -64,17 +64,19 @@ public class CMCDriver {
     System.out.println("School citeria admin enters.");
     noreen.addUniversity("Brad","Ohio","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
     
-    //admin edits a school
+    //admin edits a school-Ramon
     
-    //admin adds a user
+    //admin adds a user-James
     
-    //admin views all users
+    //admin views all users-Jaime
     
-    //admin views a school's details
+    //admin views a school's details-Jonathan
     
-    //admin deactivates an account
+    //admin deactivates an account-Vue
+    noreen.deactivate();
     
-    //admin logsout
+    //admin logout-?
+    noreen.logout();
   
   
   
