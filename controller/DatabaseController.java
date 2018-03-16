@@ -1,4 +1,3 @@
-
 package controller;
 
 import dblibrary.project.csci230.*;
@@ -30,7 +29,13 @@ public class DatabaseController{
     dblib = new UniversityDBLibrary("stacko", "stacko", "csci230");
   }
   
-  
+  /**
+   * Allows the Admin to add a new university to the database
+   * 
+   * @param university the name of the university that is to be added
+   * 
+   * @return true if university is added, false otherwise
+   */
   public boolean addUniversity(University university){
     int addFailed = 0;
     int failed = dblib.university_addUniversity(university.getUniversityName(), university.getUniversityState(), university.getLocationType(), university.getControl(), (int)university.getNumEnrolled(),
@@ -46,7 +51,13 @@ public class DatabaseController{
     }
     return false;
   }
-  
+  /**
+   * Allows the admin to edit a university in the database.
+   * 
+   * @param university the name of the university that is to be edited
+   * 
+   * @return true if the edits were made, false otherwise
+   */
   public boolean editUniversity(University university){
     String[][] array = dblib.university_getNamesWithEmphases();
     ArrayList<String> oldArray = new ArrayList<String>();
@@ -79,7 +90,13 @@ public class DatabaseController{
     return false;
     
   }
-  
+  /**
+   * Allows the admin to edit a user's information.
+   * 
+   * @param account the name of the users account
+   * 
+   * @return true if the edits were made, false otherwise
+   */
   public boolean editUser(Account account){
     int failed = dblib.user_editUser(account.getUsername(), account.getFirstName(), account.getLastName(), account.getPassword(),
                                      account.getType(), account.getStatus());
@@ -88,19 +105,34 @@ public class DatabaseController{
     else
       return false;    
   }
-  
+  /**
+   * Allows the student to save a universtiy to their list.
+   * 
+   * @param username the username of the student 
+   * @param schoolName the name of the university the student wants to add to their list
+   * 
+   * @return true if the university was added, false otherwise
+   */
   public boolean saveUniversity(String username, String schoolName){
    int failed = dblib.user_saveSchool(username, schoolName);
    if(failed != -1)
      return true;
    return false;
   }
- 
+ /**
+  * Allows the admin to get all the users.
+  */
   public String[][] getUsers()
   {
     return dblib.user_getUsers();
   }
-  
+  /**
+   * This allows the admin delete a university from the database.
+   * 
+   * @param name the name of the university that the Admin wants to delete
+   * 
+   * @return true if it was delted, false otherwise
+   */ 
   public boolean deleteUniversity(String name){
     University deleteUniversity = getUniversity(name);
     if(deleteUniversity == null){
@@ -118,6 +150,13 @@ public class DatabaseController{
       return false;
   }
   
+  /**
+   * This allows the user to get the university information.
+   * 
+   * @param schoolName the name of the school that the user wants the information of
+   * 
+   * @returns a University entity with the information of the university
+   */
   public University getUniversity(String schoolName){
     ArrayList<String> emphases = new ArrayList<String>();
     String[][] arr = dblib.university_getNamesWithEmphases();

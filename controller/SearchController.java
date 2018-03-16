@@ -37,6 +37,28 @@ public class SearchController{
   private int socialScale;
   private int qualityOfLife;
   
+  /**
+   * Allows the user to search for a university, passing in all the search citeria.
+   * 
+   * @param universityName the name of the university 
+   * @param state the state the university is located in 
+   * @param location whether is rural, urban or city
+   * @param control whether the school is public or private
+   * @param numberOfStudents the number of students at the school
+   * @param female the percentage of female students at the school
+   * @param SATVerbal the SAT verbal score at the school
+   * @param SATMath the SAT math score at the school
+   * @param expenses the cost to attend the school
+   * @param financialAid the financial aid the school offers for students
+   * @param numberOfApplicants the number of students who applied to the school
+   * @param admitted the number of students admitted to the school
+   * @param enrolled the number of students enrolled at the school
+   * @param academicScale the school's academic rating
+   * @param socialScale the school's social rating
+   * @param qualityOfLifeScale the school's quality of life for students
+   * 
+   * @returns an ArrayList of universities that fits the search criteria
+   */
   public ArrayList<University> search(String universityName, String state, String location, String control, int numberOfStudents, double female, double SATVerbal,
                                       double SATMath, double expenses, double financialAid, int numberOfApplicants, double admitted, double enrolled,
                                       int academicScale, int socialScale, int qualityOfLifeScale){

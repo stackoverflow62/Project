@@ -1,9 +1,14 @@
+package entity;
+
 import dblibrary.project.csci230.*;
 import java.io.*;
 import java.lang.*;
 import java.util.*;
 
 
+import entity.*;
+import interaction.*;
+import controller.*;
 /**
  * University Entity that stores all the information pertaining to a school.
  * 

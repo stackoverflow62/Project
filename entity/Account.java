@@ -1,4 +1,3 @@
-
 package entity;
 
 import dblibrary.project.csci230.*;
@@ -45,7 +44,9 @@ public class Account
     this.status = status;
   }
   
- 
+ /**
+  * Sets the variable isLoggedIn to true
+  */
   public void logIn()
   {
     if(!isLoggedIn)

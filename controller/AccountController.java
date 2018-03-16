@@ -19,8 +19,10 @@ public class AccountController{
   Account ac;
   
   /**
-   *Login for the user
+   * Login for the user
    *
+   * @param u the username of the user
+   * @param p the password of the user
    *
    **/
   public AccountController(String u, String p){
@@ -28,6 +30,12 @@ public class AccountController{
     ac.logIn();
   }
   
+  /**
+   * Logs the user in
+   * 
+   * @param u the username of the user
+   * @param p the password of the user
+   */
    public void login(String u, String p){
     if(verifyAccount(u,p)){
       username = u;
@@ -85,7 +93,9 @@ public class AccountController{
     }
     return false;
   }
-  
+/**
+ * Logs the user out of their account  
+ */
   public void logout()
   {
     ac.logOut();

@@ -1,7 +1,13 @@
+package controller;
+
 import java.io.*;
 import java.lang.*;
 import java.util.*;
 import dblibrary.project.csci230.*;
+//import entity;
+import entity.*;
+import interaction.*;
+import controller.*;
 
 /** 
  * User Functionality Controller that the user can you to do actions 

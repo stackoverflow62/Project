@@ -36,6 +36,9 @@ public class AdminInteraction
   }
   /*
    * Begins the login process, calls the Account controller
+   * 
+   * @param username the username of a user
+   * @param password the password associated with the user
    */
   public void login(String username, String password)
   {
@@ -45,6 +48,13 @@ public class AdminInteraction
   }
   /*
    * Calls the edit student function in the Admin Functionality Controller
+   * 
+   * @param username the username of a user
+   * @param firstName the first name of the user
+   * @param lastName the last name of the user
+   * @param password the password associated with the user
+   * @param type the type of account the user is whether admin or student
+   * @param status the status of the user, active or deactivated
    */
   public void editStudent(String username, String firstName, String lastName, String password, char type, char status)
   {
@@ -69,6 +79,23 @@ public class AdminInteraction
   /*
    *Gets any details to add a new university, then calls the addUniversity method in
    * the University Controller
+   * 
+   * @param universityName the name of the university 
+   * @param state the state the university is located in 
+   * @param location whether is rural, urban or city
+   * @param control whether the school is public or private
+   * @param numberOfStudents the number of students at the school
+   * @param female the percentage of female students at the school
+   * @param SATVerbal the SAT verbal score at the school
+   * @param SATMath the SAT math score at the school
+   * @param expenses the cost to attend the school
+   * @param financialAid the financial aid the school offers for students
+   * @param numberOfApplicants the number of students who applied to the school
+   * @param admitted the number of students admitted to the school
+   * @param enrolled the number of students enrolled at the school
+   * @param academicScale the school's academic rating
+   * @param socialScale the school's social rating
+   * @param qualityOfLifeScale the school's quality of life for students
    */
   public void addUniversity (String universityName, String state, String location, String control, int numberOfStudents, double female, double SATVerbal,
                                       double SATMath, double expenses, double financialAid, int numberOfApplicants, double admitted, double enrolled,
@@ -199,6 +226,8 @@ public class AdminInteraction
   
   /*
    * calls the view school details method in th university controller
+   * 
+   * @param school the name of the school that the student wants to look at
    */
   public void viewSchoolDetails(String school)
   {

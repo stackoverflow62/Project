@@ -32,19 +32,52 @@ public class CMCDriver {
     
     
     //View saved universities
+    john.saveUniversity("Bard");
+    
     john.viewSavedUniversities();
     
-    john.removeUniversity("John", "Brad");
+    john.removeUniversity("John", "Bard");
     
-    john.saveUniversity("Brad");
+    john.viewSavedUniversities();
     
     //john.viewUniversityDetails(University university);
     
     john.confirmation();
     
     john.logout();
+    
+    
+    //admin enters login information
+    System.out.println("Login Credentials");
+    System.out.println("Username: nadmin");
+    System.out.println("Password: admin");
+    AdminInteraction noreen = new AdminInteraction("nadmin", "admin");
+    System.out.println("its logged in");
+    noreen.login("noreen", "admin");
   
     
+    //admin edits a user's information
+    System.out.println("Edits John User's information \n");
+    noreen.editStudent("juser", "Jon", "Uzer", "uzer", 'a', 'n');
     
+    //admin adds a new school
+    System.out.println("School citeria admin enters.");
+    noreen.addUniversity("Brad","Ohio","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
+    
+    //admin edits a school
+    
+    //admin adds a user
+    
+    //admin views all users
+    
+    //admin views a school's details
+    
+    //admin deactivates an account
+    
+    //admin logsout
+  
+  
+  
+  
   }
 }

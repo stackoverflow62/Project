@@ -1,8 +1,12 @@
+package controller;
+
 import java.io.*;
 import java.lang.*;
 import java.util.*;
 import dblibrary.project.csci230.*;
-
+import entity.*;
+import interaction.*;
+import controller.*;
 /** 
  * The Student Functionality Controller class does actions for the student user  
  * 
