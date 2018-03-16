@@ -192,27 +192,27 @@ public class AdminInteraction
    * Gets all details to create a new Student, and then calls the addStudent function
    * in the admin functionality controller
    */
-  public void addStudent()
+  public void addStudent(String username, String firstName, String lastName, String password, char charType)
   {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Enter username:");
-    String username = sc.nextLine();
-    System.out.println("Enter First Name:");
-    String firstName = sc.nextLine();
-    System.out.println("Enter Last Name:");
-    String lastName = sc.nextLine();
-    System.out.println("Enter password:");
-    String password = sc.nextLine();
-    System.out.println("Enter type (a or u):");
-    String type = sc.nextLine();
-    System.out.println("Enter Status (Y or N):");
-    String status = sc.nextLine();
-    
-    char charType= type.charAt(0);
-    char charStatus = status.charAt(0);
-    
-   Account newUser = new Account(username, firstName, lastName, password, charType, charStatus);
-  //  dbc.addUser(firstName, lastName, username, password, charType);
+//    Scanner sc = new Scanner(System.in);
+//    System.out.println("Enter username:");
+//    String username = sc.nextLine();
+//    System.out.println("Enter First Name:");
+//    String firstName = sc.nextLine();
+//    System.out.println("Enter Last Name:");
+//    String lastName = sc.nextLine();
+//    System.out.println("Enter password:");
+//    String password = sc.nextLine();
+//    System.out.println("Enter type (a or u):");
+//    String type = sc.nextLine();
+//    System.out.println("Enter Status (Y or N):");
+//    String status = sc.nextLine();
+//    
+//    char charType= type.charAt(0);
+//    char charStatus = status.charAt(0);
+//    
+   Account newUser = new Account(username, firstName, lastName, password, charType);
+   //dbc.addUser(firstName, lastName, username, password, charType);
   }
   
   /*

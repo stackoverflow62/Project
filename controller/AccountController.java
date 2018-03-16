@@ -19,7 +19,21 @@ public class AccountController{
   Account ac;
   
   /**
+<<<<<<< HEAD
    * Login for the user
+=======
+   * Constructor for the account controller
+   * 
+   * @param username the username provided by the user
+   */
+  public AccountController(String username)
+  {
+   this.username = username; 
+  }
+  
+  /**
+   *Login for the user
+>>>>>>> f80f5645bffe9fc4305a592502ab0a898df18e25
    *
    * @param u the username of the user
    * @param p the password of the user

@@ -26,7 +26,7 @@ public class CMCDriver {
    // University bard = new University();
     
     //User mangaes their profile
-    System.out.println("Change your profile information/");
+    System.out.println("Change your profile information \n");
     john = new StudentInteraction("John","Doe", "12345");
     john.manageProfile("John", "Doe", "12345");
     
@@ -66,7 +66,9 @@ public class CMCDriver {
     
     //admin edits a school-Ramon
     
-    //admin adds a user-James
+    //admin adds a user - James
+    System.out.println("Admin creates a new user");
+    noreen.addStudent("Batman", "Adam", "West", "batman", 'a');
     
     //admin views all users-Jaime
     
