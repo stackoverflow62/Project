@@ -19,6 +19,16 @@ public class AccountController{
   Account ac;
   
   /**
+   * Constructor for the account controller
+   * 
+   * @param username the username provided by the user
+   */
+  public AccountController(String username)
+  {
+   this.username = username; 
+  }
+  
+  /**
    *Login for the user
    *
    *

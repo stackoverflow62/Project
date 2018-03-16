@@ -178,7 +178,8 @@ public class StudentInteraction
   public void login(String username, String password)
   {
     
-   ac = new AccountController(username, password);
+   ac = new AccountController(username);
+   ac.login(username, password);
    
   }
   

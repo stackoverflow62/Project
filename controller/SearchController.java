@@ -20,22 +20,28 @@ import controller.*;
 public class SearchController{
   
   private UniversityDBLibrary dblib;
-  String universityName;
-  private String state;
-  private String locationType;//Urban, Rural,etc
-  private String control;//whether school is private or public
-  private int numberOfStudents;
-  private double female;//percentage of female students in the university
-  private double satVerbal;
-  private double satMath;
-  private double expenses;
-  private double financialAid;
-  private int numOfApplicants;
-  private double numAdmitted;
-  private double enrolled;
-  private int academicScale;
-  private int socialScale;
-  private int qualityOfLife;
+//  String universityName;
+//  private String state;
+//  private String locationType;//Urban, Rural,etc
+//  private String control;//whether school is private or public
+//  private int numberOfStudents;
+//  private double female;//percentage of female students in the university
+//  private double satVerbal;
+//  private double satMath;
+//  private double expenses;
+//  private double financialAid;
+//  private int numOfApplicants;
+//  private double numAdmitted;
+//  private double enrolled;
+//  private int academicScale;
+//  private int socialScale;
+//  private int qualityOfLife;
+  
+  public SearchController()
+  {
+   //I don't know if I need to add anything here MAKE SURE WE UPDATE OR DELETE THIS COMMENT 
+    String message = "SearchController has been created";
+  }
   
   public ArrayList<University> search(String universityName, String state, String location, String control, int numberOfStudents, double female, double SATVerbal,
                                       double SATMath, double expenses, double financialAid, int numberOfApplicants, double admitted, double enrolled,
