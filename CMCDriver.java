@@ -66,7 +66,9 @@ public class CMCDriver {
     
     //admin edits a school
     
-    //admin adds a user
+    //admin adds a user - James
+    System.out.println("Admin creates a new user");
+    noreen.addStudent("Batman", "Adam", "West", "batman", 'a');
     
     //admin views all users
     

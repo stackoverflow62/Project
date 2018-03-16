@@ -142,5 +142,11 @@ public class DatabaseController{
     }
     return university;
   }
+  
+  public boolean addUser(String username, String firstName, String lastName, String password, char charType)
+  {
+    dblib.user_addUser(username, firstName, lastName, password, charType);
+    return true;
+  }
 }
 

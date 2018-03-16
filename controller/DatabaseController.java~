@@ -1,6 +1,13 @@
+
+package controller;
+
 import dblibrary.project.csci230.*;
 import java.io.*;
 import java.util.*;
+
+import entity.*;
+import interaction.*;
+import controller.*;
 
 /**
  * This class is the Database controller that allows a user to access the database and change things.
