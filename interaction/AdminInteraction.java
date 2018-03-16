@@ -192,7 +192,7 @@ public class AdminInteraction
    * Gets all details to create a new Student, and then calls the addStudent function
    * in the admin functionality controller
    */
-  public void addStudent(String username, String firstName, String lastName, String password, char charType)
+  public void addStudent(String username, String firstName, String lastName, String password, char charType, char status)
   {
 //    Scanner sc = new Scanner(System.in);
 //    System.out.println("Enter username:");
@@ -211,7 +211,7 @@ public class AdminInteraction
 //    char charType= type.charAt(0);
 //    char charStatus = status.charAt(0);
 //    
-   Account newUser = new Account(username, firstName, lastName, password, charType);
+   Account newUser = new Account(username, firstName, lastName, password, charType, status);
    //dbc.addUser(firstName, lastName, username, password, charType);
   }
   
