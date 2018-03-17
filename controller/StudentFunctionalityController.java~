@@ -16,8 +16,8 @@ import controller.*;
 
 public class StudentFunctionalityController 
 {
-  Account stu;
-  private UniversityDBLibrary dblib;
+  Account stu = new Account(null, null, null, null, 's', 'a');
+  UniversityDBLibrary dblib = new UniversityDBLibrary("stacko", "csci230");
   /** 
    * Edits the details of the students account
    * 

@@ -4,7 +4,6 @@ import java.io.*;
 import java.lang.*;
 import java.util.*;
 import dblibrary.project.csci230.*;
-//import entity;
 import entity.*;
 import interaction.*;
 import controller.*;
@@ -21,6 +20,13 @@ public class AdminFunctionalityController
    public Account stu;
   /**
    * Edits student account information
+   * 
+   * @param u the username
+   * @param f the user's first name
+   * @param l the user's last name
+   * @param p the user's password
+   * @param t the type of user, whether student or admin
+   * @param s the status of the user or admin, whether they are active or not
    */
   public void editUser(String u, String f, String l, String p, char t, char s)
   {
@@ -51,7 +57,11 @@ public class AdminFunctionalityController
     
 //    scan.close();
   }
-  
+  /**
+   * To deactivate a user's account.If decide not to then cancle the change.
+   * 
+   * @param s the status of the user
+   */
   public void deactivate(char s)
   {
     if (confirm())

@@ -274,7 +274,7 @@ public class AdminInteraction
   /*
    * Begins the process to deactivate a user, calls the Account controller
    */
-  public void deactivate()
+  public void deactivate(Account a)
   {
    AdminFunctionalityController afc = new AdminFunctionalityController();
    afc.deactivate('d');

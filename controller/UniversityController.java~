@@ -12,8 +12,8 @@ import controller.*;
 //import stackoverflow.*;
 public class UniversityController{
   
-  
-  private UniversityDBLibrary dblib;
+    UniversityDBLibrary dblib = new UniversityDBLibrary("stacko", "csci230");
+ // private UniversityDBLibrary dblib;
   
   /**
    * recieve the University that will be added to the database
@@ -105,6 +105,7 @@ public class UniversityController{
    */
   public void viewUniversityDetails(University u)
   {
+      
     u.getUniversityName();
     u.getUniversityState();
     u.getLocationType();
@@ -135,25 +136,29 @@ public class UniversityController{
       ArrayList<String> emphases = new ArrayList<String>();
       String[][] arr = dblib.university_getNamesWithEmphases();
       String[][] school = dblib.university_getUniversities();
-      University university = null;
-      
+            
       for(int i =0 ; i < arr.length; i++){
         if(arr[i][0].equals(schoolName)){
           emphases.add(arr[i][1]);
         }
-      }  
-      for(int i =0 ; i< school.length ; i++){
-        if(school[i][0].equals(schoolName)){
-          for(int j = 0; j < school[i].length; j++){
-            university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
-                                        Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
-                                        Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
-                                        Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
-                                        Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
-          }
-        }
       }
-      return university;
+      for(int i =0 ; i< school.length ; i++){
+        //System.out.println(school[i][0]);
+        if(school[i][0].equals(schoolName)){
+          System.out.println("School name found");
+//          for(int j = 0; j < school[i].length; j++){
+          University university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
+                                                 Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
+                                                 Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
+                                                 Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
+                                                 Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
+          System.out.println(university);
+          return university;
+        }
+//        }
+      }
+      
+      return null;
     }
   
 }

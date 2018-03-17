@@ -117,7 +117,8 @@ public class DatabaseController{
    int failed = dblib.user_saveSchool(username, schoolName);
    if(failed != -1)
      return true;
-   return false;
+   else{
+     return false;}
   }
  /**
   * Allows the admin to get all the users.

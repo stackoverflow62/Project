@@ -62,26 +62,28 @@ public class CMCDriver {
     
     //admin adds a new school
     System.out.println("School citeria admin enters.");
-    noreen.addUniversity("Brad","Ohio","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
+    noreen.addUniversity("BARD","Ohio","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
     
     //admin edits a school-Ramon
     
     //admin adds a user - James
     System.out.println("Admin creates a new active user");
-    noreen.addStudent("Batman", "Adam", "West", "batman", 'a', 'a');
+    noreen.addStudent("Batman", "Adam", "West", "batman", 'a', 'y');
     
-    //admin views all users-Jaime
-    
+    //admin views all users(students?)-Jaime
+    System.out.println("Admin Views all users: ");
+    noreen.viewStudents();
     //admin views a school's details-Jonathan
-    System.out.println("View school details");    
+    System.out.println("View school details: ");    
     noreen.viewSchoolDetails("BARD");
     
     
     //admin deactivates an account-Vue
     
-    noreen.deactivate();
+    //noreen.deactivate();
     
     //admin logout-?
+    System.out.println("Admin has been logged out");
     noreen.logout();
   
   
