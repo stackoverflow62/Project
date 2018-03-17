@@ -25,12 +25,24 @@ public class StudentInteraction
   public String lastName;
   public String password;
   
+  /**
+   * Constructors that creates a student interaction with username and password.
+   * 
+   * @param username the username of the student
+   * @param password the password associated with the username
+   */
   public StudentInteraction(String username, String password)
   {
     this.username = username;
     this.password = password;
   }
-  
+  /**
+   * Constructor that creates a studentInteraction with first,last, and password
+   * 
+   * @param firstName the firstname of the student
+   * @param lastName the last name of the student
+   * @param password the password associated with the account
+   */
   public StudentInteraction(String firstName, String lastName, String password)
   {
     this.firstName = firstName;
@@ -40,6 +52,23 @@ public class StudentInteraction
   /*
    * Will get input from the users off of the criteria they are searching for in
    *      a university, and then will pass the info to the searchController.
+   * 
+   * @param universityName the name of the university 
+   * @param state the state the university is located in 
+   * @param location whether is rural, urban or city
+   * @param control whether the school is public or private
+   * @param numberOfStudents the number of students at the school
+   * @param female the percentage of female students at the school
+   * @param SATVerbal the SAT verbal score at the school
+   * @param SATMath the SAT math score at the school
+   * @param expenses the cost to attend the school
+   * @param financialAid the financial aid the school offers for students
+   * @param numberOfApplicants the number of students who applied to the school
+   * @param admitted the number of students admitted to the school
+   * @param enrolled the number of students enrolled at the school
+   * @param academicScale the school's academic rating
+   * @param socialScale the school's social rating
+   * @param qualityOfLifeScale the school's quality of life for students
    */
   public void search(String universityName, String state, String location, String control, int numberOfStudents, double female, double SATVerbal,
                                       double SATMath, double expenses, double financialAid, int numberOfApplicants, double admitted, double enrolled,
@@ -87,6 +116,10 @@ public class StudentInteraction
   
   /*
    * Calls the manageProfile method in the studentFunctionalityController
+   * 
+   * @param firstName the firstname of the student
+   * @param lastName the last name of the student
+   * @param password the password associated with the account
    */
   public void manageProfile(String firstName, String lastName,String password)
   {
@@ -117,7 +150,8 @@ public class StudentInteraction
   /*
    * Calls the removeUniversity method in the StudentFunctionalityController
    * 
-   * @param university A university object to remove from the saved university list
+   * @param username the username of the student
+   * @param school A university object to remove from the saved university list
    */
   public void removeUniversity(String username, String school)
   {
@@ -174,11 +208,15 @@ public class StudentInteraction
   
   /*
    * Begins the login process, calls the Account controller
+   * 
+   * @param username the username of the student
+   * @param password the password associated with the account
    */
   public void login(String username, String password)
   {
     
-   ac = new AccountController(username, password);
+   ac = new AccountController(username);
+   ac.login(username, password);
    
   }
   

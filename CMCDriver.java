@@ -21,7 +21,7 @@ public class CMCDriver {
     
     //user enters search
     System.out.println("Search citeria user enters.");
-    john.search("Bard","New York","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
+    john.search("BARD","New York","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
     
    // University bard = new University();
     
@@ -32,11 +32,11 @@ public class CMCDriver {
     
     
     //View saved universities
-    john.saveUniversity("Bard");
+    john.saveUniversity("BARD");
     
     john.viewSavedUniversities();
     
-    john.removeUniversity("John", "Bard");
+    john.removeUniversity("John", "BARD");
     
     john.viewSavedUniversities();
     
@@ -44,7 +44,7 @@ public class CMCDriver {
     
     john.confirmation();
     
-    john.logout();
+    john.logout("John");
     
     
     //admin enters login information
@@ -73,10 +73,12 @@ public class CMCDriver {
     //admin views all users-Jaime
     
     //admin views a school's details-Jonathan
-    System.out.println("View school details");
-    noreen.viewSchoolDetails("Brad");
+    System.out.println("View school details");    
+    noreen.viewSchoolDetails("BARD");
+    
     
     //admin deactivates an account-Vue
+    
     noreen.deactivate();
     
     //admin logout-?

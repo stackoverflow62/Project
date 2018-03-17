@@ -133,10 +133,7 @@ public class StudentInteraction
     
     StudentFunctionalityController sfc = new StudentFunctionalityController();
     sfc.manageDetails(firstName, lastName, password);
-    if(this.confirmation())
-    {
-      sfc.confirm(); 
-    }
+    
   }
   
   /*
@@ -223,9 +220,9 @@ public class StudentInteraction
   /*
    * Begins the logout process, calls the Account controller
    */
-  public void logout()
+  public void logout(String username)
   {
-    
+    ac = new AccountController(username);
     ac.logout();
   }
   

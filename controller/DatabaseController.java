@@ -19,14 +19,14 @@ import controller.*;
 
 public class DatabaseController{
   
-  private UniversityDBLibrary dblib;
+  UniversityDBLibrary dblib;
  
   
   /**
    * Default Constructor
    */
   public DatabaseController(){
-    dblib = new UniversityDBLibrary("stacko", "stacko", "csci230");
+    dblib = new UniversityDBLibrary("stacko", "csci230");
   }
   
   /**

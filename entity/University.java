@@ -87,7 +87,7 @@ public class University
     this.academicScale = academicScale;
     this.socialScale = socialScale;
     this.qualityOfLife =qualityOfLife;
-    this.emphases = emphases;
+  //  this.emphases = emphases;
     
   }
 //  public University()

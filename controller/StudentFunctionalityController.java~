@@ -20,6 +20,10 @@ public class StudentFunctionalityController
   private UniversityDBLibrary dblib;
   /** 
    * Edits the details of the students account
+   * 
+   * @param f the first name of the student
+   * @param l the last name of the student
+   * @param p the password of the student
    */
   public void manageDetails(String f, String l, String p) 
   {
@@ -70,7 +74,11 @@ public class StudentFunctionalityController
     else 
       return false;
   }
-  
+  /**
+   * Allows the student to view a save list of universities the student has saved.
+   * 
+   * @return an ArrayList of universities
+   */
   public ArrayList<University> viewSavedUniversities() {
     
     ArrayList<University> schoolInfo = new ArrayList<University>();
@@ -92,7 +100,14 @@ public class StudentFunctionalityController
     }
     return schoolInfo;
   }
-    public University getUniversity(String schoolName){
+    /**
+   * This allows the user to get the university information.
+   * 
+   * @param schoolName the name of the school that the user wants the information of
+   * 
+   * @returns a University entity with the information of the university
+   */
+  public University getUniversity(String schoolName){
   ArrayList<String> emphases = new ArrayList<String>();
   String[][] arr = dblib.university_getNamesWithEmphases();
   String[][] school = dblib.university_getUniversities();
@@ -117,7 +132,14 @@ public class StudentFunctionalityController
   return university;
   }
   
-
+/**
+ * Allows the student to remove a school that they have saved.
+ * 
+ * @param user the username of the student account
+ * @param school the name of the univeristy the student wants to remove
+ * 
+ * @return true if the school was remove, false otherwise
+ */
   public boolean removeUniversity(String user, String school){
     University removeUniversity = getUniversity(school);
     if(removeUniversity == null){

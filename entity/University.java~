@@ -46,6 +46,25 @@ public class University
   
   /**
    * Constructor to create a new university with all the following information that a university should contain. 
+   * 
+   * @param universityName the name of the university 
+   * @param state the state the university is located in 
+   * @param location whether is rural, urban or city
+   * @param control whether the school is public or private
+   * @param numberOfStudents the number of students at the school
+   * @param female the percentage of female students at the school
+   * @param SATVerbal the SAT verbal score at the school
+   * @param SATMath the SAT math score at the school
+   * @param expenses the cost to attend the school
+   * @param financialAid the financial aid the school offers for students
+   * @param numberOfApplicants the number of students who applied to the school
+   * @param admitted the number of students admitted to the school
+   * @param enrolled the number of students enrolled at the school
+   * @param academicScale the school's academic rating
+   * @param socialScale the school's social rating
+   * @param qualityOfLifeScale the school's quality of life for students
+   * 
+   * @return a University object
    */
   
   public University(String school, String state,String locationType, String control, int numberOfStudents,double female,double satVerbal, 

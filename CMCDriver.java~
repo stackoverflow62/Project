@@ -67,12 +67,14 @@ public class CMCDriver {
     //admin edits a school-Ramon
     
     //admin adds a user - James
-    System.out.println("Admin creates a new user");
-    noreen.addStudent("Batman", "Adam", "West", "batman", 'a');
+    System.out.println("Admin creates a new active user");
+    noreen.addStudent("Batman", "Adam", "West", "batman", 'a', 'a');
     
     //admin views all users-Jaime
     
     //admin views a school's details-Jonathan
+    System.out.println("View school details");
+    noreen.viewSchoolDetails("Brad");
     
     //admin deactivates an account-Vue
     noreen.deactivate();

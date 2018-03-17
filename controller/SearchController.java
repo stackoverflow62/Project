@@ -19,7 +19,7 @@ import controller.*;
 
 public class SearchController{
   
-  private UniversityDBLibrary dblib;
+  UniversityDBLibrary dblib = new UniversityDBLibrary("stacko", "csci230");
 //  String universityName;
 //  private String state;
 //  private String locationType;//Urban, Rural,etc
@@ -69,6 +69,7 @@ public class SearchController{
                                       double SATMath, double expenses, double financialAid, int numberOfApplicants, double admitted, double enrolled,
                                       int academicScale, int socialScale, int qualityOfLifeScale){
     ArrayList<University> schoolInfo = new ArrayList<University>();
+    
     String[][] school = dblib.university_getUniversities();
     String[][] empArr = dblib.university_getNamesWithEmphases();
     for(int i =0 ; i < school.length; i++){

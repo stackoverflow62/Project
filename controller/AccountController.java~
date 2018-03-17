@@ -19,8 +19,24 @@ public class AccountController{
   Account ac;
   
   /**
+<<<<<<< HEAD
+   * Login for the user
+=======
+   * Constructor for the account controller
+   * 
+   * @param username the username provided by the user
+   */
+  public AccountController(String username)
+  {
+   this.username = username; 
+  }
+  
+  /**
    *Login for the user
+>>>>>>> f80f5645bffe9fc4305a592502ab0a898df18e25
    *
+   * @param u the username of the user
+   * @param p the password of the user
    *
    **/
   public AccountController(String u, String p){
@@ -28,6 +44,12 @@ public class AccountController{
     ac.logIn();
   }
   
+  /**
+   * Logs the user in
+   * 
+   * @param u the username of the user
+   * @param p the password of the user
+   */
    public void login(String u, String p){
     if(verifyAccount(u,p)){
       username = u;
@@ -85,7 +107,9 @@ public class AccountController{
     }
     return false;
   }
-  
+/**
+ * Logs the user out of their account  
+ */
   public void logout()
   {
     ac.logOut();
