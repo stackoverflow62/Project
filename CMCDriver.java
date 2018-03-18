@@ -64,6 +64,7 @@ public class CMCDriver {
     //admin adds a new school
     System.out.println("School citeria admin enters.");
     noreen.addUniversity("BARD","Ohio","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
+    noreen.addUniversity("CSB","MN","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
     
     //admin edits a school-Ramon
     noreen.editUniversity();

@@ -19,6 +19,8 @@ import controller.*;
 public class AdminInteraction
 {
   DatabaseController dbc = new DatabaseController();
+  public String[][] students = dbc.getUsers();
+  
   AccountController ac;
   public String username;
   public String password;
@@ -56,7 +58,7 @@ public class AdminInteraction
    * @param type the type of account the user is whether admin or student
    * @param status the status of the user, active or deactivated
    */
-  public void editStudent(String username, String firstName, String lastName, String password, char type, char status)
+  public void editStudent(String firstName, String lastName, String username,  String password, char type, char status)
   {
 //    Scanner sc = new Scanner(System.in);
 //    System.out.println("Enter the username of the account you want to edit.");
@@ -192,7 +194,7 @@ public class AdminInteraction
    * Gets all details to create a new Student, and then calls the addStudent function
    * in the admin functionality controller
    */
-  public void addStudent(String username, String firstName, String lastName, String password, char charType, char status)
+  public void addStudent(String firstName, String lastName, String username, String password, char charType, char status)
   {
 //    Scanner sc = new Scanner(System.in);
 //    System.out.println("Enter username:");
@@ -211,7 +213,7 @@ public class AdminInteraction
 //    char charType= type.charAt(0);
 //    char charStatus = status.charAt(0);
 //    
-   Account newUser = new Account(username, password, firstName, lastName, charType, status);
+   Account newUser = new Account(firstName, lastName, username, password,  charType, status);
    //                         String userName,String password, String firstName, String lastName, char type, char status
    if(dbc.addUser(firstName, lastName, username, password, charType)){
      System.out.println("User " + firstName + " succesfully added");
@@ -228,7 +230,7 @@ public class AdminInteraction
   {
    //DatabaseController dbc = new DatabaseController();
     
-   String[][] students = dbc.getUsers();
+   
    for(int i = 0; i < students.length; i++){
      System.out.println(students[i][0] + " " + students[i][1]);
    }
@@ -289,5 +291,21 @@ public class AdminInteraction
   {
    AdminFunctionalityController afc = new AdminFunctionalityController();
    afc.deactivate('d', a);
+  }
+  
+  public Account findStudent(String studentName){
+    Account temp =null;
+    for(int i = 0; i < students.length; i++){
+      //System.out.println(students[i][0] + " " + students[i][1]+ " " +  students[i][2]+ " " +  students[i][3]+ " " +  students[i][4]+ " " +  students[i][5]);
+      if (students[i][2].equals(studentName)){
+        //String userName,String password, String firstName, String lastName, char type, char status
+        String status = students[i][5];
+        String type = students[i][4];
+        temp = new Account(students[i][2], students[i][3], students[i][0], students[i][1], type.charAt(0), status.charAt(0));
+        
+      }
+   }
+    //System.out.println(temp);
+    return temp;
   }
 }
