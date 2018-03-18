@@ -211,8 +211,14 @@ public class AdminInteraction
 //    char charType= type.charAt(0);
 //    char charStatus = status.charAt(0);
 //    
-   Account newUser = new Account(username, firstName, lastName, password, charType, status);
-   //dbc.addUser(firstName, lastName, username, password, charType);
+   Account newUser = new Account(username, password, firstName, lastName, charType, status);
+   //                         String userName,String password, String firstName, String lastName, char type, char status
+   if(dbc.addUser(firstName, lastName, username, password, charType)){
+     System.out.println("User " + firstName + " succesfully added");
+   }
+   else
+     System.out.println("User " + firstName + " was not added");
+   
   }
   
   /*
@@ -220,8 +226,13 @@ public class AdminInteraction
    */
   public void viewStudents()
   {
-   DatabaseController dbc = new DatabaseController();
-   dbc.getUsers();
+   //DatabaseController dbc = new DatabaseController();
+    
+   String[][] students = dbc.getUsers();
+   for(int i = 0; i < students.length; i++){
+     System.out.println(students[i][0] + " " + students[i][1]);
+   }
+   
   }
   
   /*
@@ -277,6 +288,6 @@ public class AdminInteraction
   public void deactivate(Account a)
   {
    AdminFunctionalityController afc = new AdminFunctionalityController();
-   afc.deactivate('d');
+   afc.deactivate('d', a);
   }
 }

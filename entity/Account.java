@@ -43,7 +43,9 @@ public class Account
 //    this.type = ;
 //    this.status = '';
 //  }
-  public Account(String userName,String password, String firstName, String lastName, char type, char status)
+  public Account(String firstName, String lastName, String userName,String password,  char type, char status)
+    
+    
   {
     this.userName = userName;
     this.password = password;

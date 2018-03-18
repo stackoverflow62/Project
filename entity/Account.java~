@@ -34,6 +34,15 @@ public class Account
    * This method checks whether or not a user is login.
    * If the user is not log in then it will set the isLoggedIn to true
    */
+//  public Account()
+//  {
+//    this.userName = null;
+//    this.password = null;
+//    this.firstName = null;
+//    this.lastName = null;
+//    this.type = ;
+//    this.status = '';
+//  }
   public Account(String userName,String password, String firstName, String lastName, char type, char status)
   {
     this.userName = userName;
@@ -42,6 +51,11 @@ public class Account
     this.lastName = lastName;
     this.type = type;
     this.status = status;
+  }
+  
+  public Account(String username, String password){
+   this.userName = username;
+   this.password = password;
   }
   
  /**

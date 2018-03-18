@@ -79,10 +79,10 @@ public class DatabaseController{
         dblib.university_removeUniversityEmphasis(university.getUniversityName(), oldArray.get(i));
       }
     }
-    ArrayList<String> newArray = university.getEmphases();
-    for(int i = 0; i < newArray.size(); i++){
-      updateFailed = dblib.university_addUniversityEmphasis(university.getUniversityName(), newArray.get(i));
-    }
+//    ArrayList<String> newArray = university.getEmphases();
+//    for(int i = 0; i < newArray.size(); i++){
+//      updateFailed = dblib.university_addUniversityEmphasis(university.getUniversityName(), newArray.get(i));
+//    }
     
     if(updateFailed != -1){
       return true;
@@ -98,8 +98,9 @@ public class DatabaseController{
    * @return true if the edits were made, false otherwise
    */
   public boolean editUser(Account account){
-    int failed = dblib.user_editUser(account.getUsername(), account.getFirstName(), account.getLastName(), account.getPassword(),
+    int failed = dblib.user_editUser(account.getFirstName(), account.getLastName(), account.getUsername(), account.getPassword(),
                                      account.getType(), account.getStatus());
+    //(firstName, lastName, username, password, charType)
     if(failed != -1)
       return true;
     else
@@ -170,6 +171,7 @@ public class DatabaseController{
       }
     }  
     for(int i =0 ; i< school.length ; i++){
+      System.out.println(school[i][0]);
       if(school[i][0].equals(schoolName)){
         for(int j = 0; j < school[i].length; j++){
           university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
@@ -183,9 +185,9 @@ public class DatabaseController{
     return university;
   }
   
-  public boolean addUser(String username, String firstName, String lastName, String password, char charType)
+  public boolean addUser(String firstName, String lastName, String username, String password, char charType)
   {
-    dblib.user_addUser(username, firstName, lastName, password, charType);
+    dblib.user_addUser(firstName, lastName, username, password, charType);
     return true;
   }
 }

@@ -54,34 +54,40 @@ public class CMCDriver {
     AdminInteraction noreen = new AdminInteraction("nadmin", "admin");
     System.out.println("its logged in");
     noreen.login("noreen", "admin");
-  
+    noreen.addStudent("John", "User", "juser", "password", 'a', 'N');
     
     //admin edits a user's information
     System.out.println("Edits John User's information \n");
-    noreen.editStudent("juser", "Jon", "Uzer", "uzer", 'a', 'n');
+    noreen.editStudent("juser", "Jon", "Uzer", "uzer", 'a', 'N');
+    
     
     //admin adds a new school
     System.out.println("School citeria admin enters.");
-    noreen.addUniversity("Brad","Ohio","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
+    noreen.addUniversity("BARD","Ohio","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
     
     //admin edits a school-Ramon
+    //ynoreen.editUniversity();
     
     //admin adds a user - James
     System.out.println("Admin creates a new active user");
-    noreen.addStudent("Batman", "Adam", "West", "batman", 'a', 'a');
+    noreen.addStudent( "Adam", "West", "Batman", "password", 'a', 'Y');
     
-    //admin views all users-Jaime
-    
+    //String username, String firstName, String lastName, String password, char charType, char status
+
+    //admin views all users(students?)-Jaime
+    System.out.println("Admin Views all users: ");
+    noreen.viewStudents();
     //admin views a school's details-Jonathan
-    System.out.println("View school details");    
-    noreen.viewSchoolDetails("BARD");
+    System.out.println("View school details: ");    
+    noreen.viewSchoolDetails("BROWN");
     
     
     //admin deactivates an account-Vue
-    
-    noreen.deactivate();
+    System.out.println("Deactivate account ");
+    //noreen.deactivate(noreen.findStudent("Batman"));
     
     //admin logout-?
+    System.out.println("Admin has been logged out");
     noreen.logout();
   
   

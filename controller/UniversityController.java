@@ -41,9 +41,10 @@ public class UniversityController{
   public void addUniversity(String schoolName, String state, String location, String control, int numStudents,
                             double female, double satVerb, double satMath, double expenses, double finAid, int numApplicants,
                             double numAdmitted, double numEnrolled, int acaScale, int socScale, int qualityLife){
-    University ad = new University(schoolName, state, location, control, numStudents,
+    dblib.university_addUniversity(schoolName, state, location, control, numStudents,
                                    female, satVerb, satMath, expenses, finAid, numApplicants,
                                    numAdmitted, numEnrolled, acaScale, socScale, qualityLife);
+    //dbc.university_addUniversity
     
   }
   /**
@@ -67,6 +68,7 @@ public class UniversityController{
                                              Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
                                              Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
       schoolInfo.add(university);
+      
     }
     return schoolInfo;
   }

@@ -106,23 +106,23 @@ public class UniversityController{
   public void viewUniversityDetails(University u)
   {
       
-    u.getUniversityName();
-    u.getUniversityState();
-    u.getLocationType();
-    u.getControl();
-    u.getNumOfStudents();
-    u.getFemalePercentage();
-    u.getSATVerbal();
-    u.getSATMath();
-    u.getExpenses();
-    u.getFinancialAid();
-    u.getNumApplicants();
-    u.getNumAdmitted();
-    u.getNumEnrolled();
-    u.getAcademicScale();
-    u.getSocialScale();
-    u.getQualityOfLife();
-    u.getEmphases();
+    System.out.println("University Name: " + u.getUniversityName());
+    System.out.println("University State: " + u.getUniversityState());
+    System.out.println("University Location Type: " + u.getLocationType());
+    System.out.println("University Control: " + u.getControl());
+    System.out.println("University NumOfStudents: " + u.getNumOfStudents());
+    System.out.println("University FemalePercentage: " + u.getFemalePercentage());
+    System.out.println("University SATVerbal: " + u.getSATVerbal());
+    System.out.println("University SATMath: " + u.getSATMath());
+    System.out.println("University Expenses: " + u.getExpenses());
+    System.out.println("University FinancialAid: " + u.getFinancialAid());
+    System.out.println("University NumApplicants: " + u.getNumApplicants());
+    System.out.println("University NumAdmitted: " + u.getNumAdmitted());
+    System.out.println("University NumEnrolled: " + u.getNumEnrolled());
+    System.out.println("University AcademicScale: " + u.getAcademicScale());
+    System.out.println("University SocialScale: " + u.getSocialScale());
+    System.out.println("University QualityOfLife: " + u.getQualityOfLife());
+    System.out.println("University Emphases: " + u.getEmphases());
     
   }
  /**
@@ -143,21 +143,16 @@ public class UniversityController{
         }
       }
       for(int i =0 ; i< school.length ; i++){
-        //System.out.println(school[i][0]);
         if(school[i][0].equals(schoolName)){
-          System.out.println("School name found");
-//          for(int j = 0; j < school[i].length; j++){
+          
           University university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
                                                  Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
                                                  Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
                                                  Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
                                                  Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
-          System.out.println(university);
           return university;
         }
-//        }
       }
-      
       return null;
     }
   
