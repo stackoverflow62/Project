@@ -58,16 +58,21 @@ public class AdminFunctionalityController
 //    scan.close();
   }
   /**
-   * To deactivate a user's account.If decide not to then cancle the change.
+   * To deactivate a user's account.If decide not to then cancel the change.
    * 
    * @param s the status of the user
    */
-  public void deactivate(char s, Account a)
+  public void deactivate(Account a)
   {
     stu = a;
     if (confirm())
     {
-      stu.setStatus(s);
+      stu.setStatus('N');
+      DatabaseController dbc = new DatabaseController();
+      if (dbc.editUser(stu))
+        System.out.println("The changes have been made.");
+      else 
+        System.out.println("There was an error editing this user");
     }
     else 
       System.out.println("The changes have been cancelled");

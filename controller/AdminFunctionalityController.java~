@@ -11,7 +11,7 @@ import controller.*;
 /** 
  * User Functionality Controller that the user can you to do actions 
  * 
- * @author Ramon Angeles, Jonathan First, James H. , Jamie Veag, Vue Xiong
+ * @author Ramon Angeles, Jonathan First, James H. , Jaime Vega, Vue Xiong
  * @version Feb 25, 2018
  */
 
@@ -62,8 +62,9 @@ public class AdminFunctionalityController
    * 
    * @param s the status of the user
    */
-  public void deactivate(char s)
+  public void deactivate(char s, Account a)
   {
+    stu = a;
     if (confirm())
     {
       stu.setStatus(s);

@@ -39,7 +39,7 @@ public class SearchController{
   
   public SearchController()
   {
-   //I don't know if I need to add anything here MAKE SURE WE UPDATE OR DELETE THIS COMMENT 
+    //I don't know if I need to add anything here MAKE SURE WE UPDATE OR DELETE THIS COMMENT 
     String message = "SearchController has been created";
   }
   
@@ -65,22 +65,116 @@ public class SearchController{
    * 
    * @returns an ArrayList of universities that fits the search criteria
    */
-  public ArrayList<University> search(String universityName, String state, String location, String control, int numberOfStudents, double female, double SATVerbal,
-                                      double SATMath, double expenses, double financialAid, int numberOfApplicants, double admitted, double enrolled,
-                                      int academicScale, int socialScale, int qualityOfLifeScale){
-    ArrayList<University> schoolInfo = new ArrayList<University>();
+  public ArrayList<String> search(String universityName, String state, String location, String control, String numberOfStudents, String female, String satVerbal,
+                                  String satMath, String expenses, String financialAid, String numberOfApplicants, String admitted, String enrolled,
+                                  String academicScale, String socialScale, String qualityOfLifeScale){
+    ArrayList<String> schoolInfo = new ArrayList<String>();
     
     String[][] school = dblib.university_getUniversities();
-    String[][] empArr = dblib.university_getNamesWithEmphases();
-    for(int i =0 ; i < school.length; i++){
-      ArrayList<String> emphases = new ArrayList<String>();
-      for(int j = 0; j < empArr.length; j++){
-        if(empArr[j][0].equals(school[i][0])){
-          emphases.add(empArr[j][1]);
+    String[][] results = new String[school.length][2];
+    String[][] printr = new String[school.length][2];
+    Integer count;
+    //String[][] empArr = dblib.university_getNamesWithEmphases();
+    for(int i =0 ; i < school.length; i++)
+    {
+      count = 0;
+      for(int j = 0; j < 16; j++)
+      {
+        if(school[i][j].equals(universityName))
+        {
+          count++;
+        }
+        if(school[i][j].equals(state))
+        {
+          count++;
+        }
+        if(school[i][j].equals(location))
+        {
+          count++;
+        }
+        
+        if(school[i][j].equals(control))
+        {
+          count++;
+        }
+        if(school[i][j].equals(numberOfStudents))
+        {
+          count++;
+        }
+        if(school[i][j].equals(female))
+        {
+          count++;
+        }
+        if(school[i][j].equals(satVerbal))
+        {
+          count++;
+        }
+        if(school[i][j].equals(satMath))
+        {
+          count++;
+        }
+        if(school[i][j].equals(expenses))
+        {
+          count++;
+        }
+        
+        if(school[i][j].equals(financialAid))
+        {
+          count++;
+        }
+        if(school[i][j].equals(numberOfApplicants))
+        {
+          count++;
+        }
+        if(school[i][j].equals(admitted))
+        {
+          count++;
+        }
+        
+        if(school[i][j].equals(enrolled))
+        {
+          count++;
+        }
+        if(school[i][j].equals(academicScale))
+        {
+          count++;
+        }
+        if(school[i][j].equals(socialScale))
+        {
+          count++;
+        }
+        
+        if(school[i][j].equals(qualityOfLifeScale)) 
+        { 
+          count++;
         }
       }
       
+      results[i][0] = school[i][0];
+      results[i][1] = Integer.toString(count);
+      //System.out.println(results[i][0] + " " + results[i][1]);
     }
+    int somethingCounter = 0;
+    
+    for(Integer matchResults = 18; matchResults > 0; matchResults--)
+    {
+      
+      for (int x = 0; x < results.length; x++)
+      {
+        //System.out.println(results[x][0]);
+        if (results[x][1].equals(Integer.toString(matchResults)))
+        {
+//          System.out.println(results[x][0]);
+//          printr[somethingCounter][0] = results[x][0];
+//          printr[somethingCounter][1] = results[x][1];
+//          somethingCounter++;
+          schoolInfo.add(results[x][0]);
+          if(schoolInfo.size() == 5)
+            return schoolInfo;
+        } 
+      }
+    }
+    
     return schoolInfo;
   }
 }

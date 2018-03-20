@@ -290,7 +290,7 @@ public class AdminInteraction
   public void deactivate(Account a)
   {
    AdminFunctionalityController afc = new AdminFunctionalityController();
-   afc.deactivate('d', a);
+   afc.deactivate(a);
   }
   
   public Account findStudent(String studentName){

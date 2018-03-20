@@ -163,9 +163,9 @@ public class AdminInteraction
     System.out.println("Enter the desired percentage of female students");
     double female = Double.parseDouble(sc.nextLine());
     System.out.println("Enter the SAT Verbal Score");
-    double Satverbal = Double.parseDouble(sc.nextLine());
+    double satVerbal = Double.parseDouble(sc.nextLine());
     System.out.println("Enter the SAT Math Score");
-    double Satmath = Double.parseDouble(sc.nextLine());
+    double satMath = Double.parseDouble(sc.nextLine());
     System.out.println("Enter the expenses");
     double expenses = Double.parseDouble(sc.nextLine());
     System.out.println("Enter the percentage of students to receive financial aid");
@@ -184,8 +184,8 @@ public class AdminInteraction
     int qualtiyOfLifeScale = Integer.parseInt(sc.nextLine());
     
     DatabaseController dbc = new DatabaseController();
-    University uni = new University(universityName, state, location, control, numberOfStudents, female, Satverbal,
-                      Satmath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
+    University uni = new University(universityName, state, location, control, numberOfStudents, female, satVerbal,
+                      satMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
                       academicScale, socialScale, qualtiyOfLifeScale);
     dbc.editUniversity(uni);
   }
