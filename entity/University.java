@@ -1,8 +1,8 @@
 package entity;
 
-<<<<<<< HEAD
+
 import java.util.ArrayList;
-=======
+
 import dblibrary.project.csci230.*;
 import java.io.*;
 import java.lang.*;
@@ -12,7 +12,7 @@ import java.util.*;
 import entity.*;
 import interaction.*;
 import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
 /**
  * University Entity that stores all the information pertaining to a school.
  * 
@@ -26,10 +26,9 @@ import controller.*;
 
 public class University
 {
-<<<<<<< HEAD
-=======
+
   private boolean savedStatus;//status, whether or not the school is save
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
   private String school;//name of school
   private String state;
   private String locationType;//Urban, Rural,etc

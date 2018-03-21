@@ -2,7 +2,7 @@
 
 package interaction;
 
-<<<<<<< HEAD
+
 import java.util.Scanner;
 
 import controller.AccountController;
@@ -12,13 +12,13 @@ import controller.StudentFunctionalityController;
 import controller.UniversityController;
 import entity.Account;
 import entity.University;
-=======
+
 import java.util.*;
 
 import entity.*;
 import interaction.*;
 import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
 
 /*
  * Class that student will interact with for any methods they need
@@ -70,11 +70,9 @@ public class AdminInteraction
    * @param type the type of account the user is whether admin or student
    * @param status the status of the user, active or deactivated
    */
-<<<<<<< HEAD
+
   public void editStudent(String username, String firstName, String lastName,  String password, char type, char status)
-=======
-  public void editStudent(String firstName, String lastName, String username,  String password, char type, char status)
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
   {
 //    Scanner sc = new Scanner(System.in);
 //    System.out.println("Enter the username of the account you want to edit.");
@@ -207,22 +205,18 @@ public class AdminInteraction
                       academicScale, socialScale, qualityOfLifeScale);
     dbc.editUniversity(uni);
   }
-<<<<<<< HEAD
+
   public void viewUniversites() {
 	  dbc.getUniversities();
   }
-=======
-  
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
   /*
    * Gets all details to create a new Student, and then calls the addStudent function
    * in the admin functionality controller
    */
   public void addStudent(String firstName, String lastName, String username, String password, char charType, char status)
   {
-<<<<<<< HEAD
-//                         String userName,String password, String firstName, String lastName, char type, char status
-=======
+
 //    Scanner sc = new Scanner(System.in);
 //    System.out.println("Enter username:");
 //    String username = sc.nextLine();
@@ -242,7 +236,7 @@ public class AdminInteraction
 //    
    Account newUser = new Account(firstName, lastName, username, password,  charType, status);
    //                         String userName,String password, String firstName, String lastName, char type, char status
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
    if(dbc.addUser(firstName, lastName, username, password, charType)){
      System.out.println("User " + firstName + " succesfully added");
    }
@@ -273,13 +267,10 @@ public class AdminInteraction
   public void viewSchoolDetails(String school)
   {
    UniversityController uc = new UniversityController();
-<<<<<<< HEAD
+
    University u = uc.getUniversity(school);
    uc.viewUniversityDetails(u, dbc.getEmphasis(school));
-=======
-   University u = uc.getUniversity(school) ;
-   uc.viewUniversityDetails(u);
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
   }
   
   /*

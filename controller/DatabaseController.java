@@ -1,12 +1,11 @@
 package controller;
 
-<<<<<<< HEAD
+
 import java.util.ArrayList;
 
 import dblibrary.project.csci230.UniversityDBLibrary;
 import entity.Account;
 import entity.University;
-=======
 import dblibrary.project.csci230.*;
 import java.io.*;
 import java.util.*;
@@ -14,7 +13,6 @@ import java.util.*;
 import entity.*;
 import interaction.*;
 import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 
 /**
  * This class is the Database controller that allows a user to access the database and change things.
@@ -106,18 +104,11 @@ public class DatabaseController{
    * @return true if the edits were made, false otherwise
    */
   public boolean editUser(Account account){
-<<<<<<< HEAD
     //int failed = dblib.user_editUser(account.getFirstName(), account.getLastName(), account.getUsername(), account.getPassword(),
                                //      account.getType(), account.getStatus());
     //(firstName, lastName, username, password, charType)
     if(dblib.user_editUser(account.getUsername(), account.getFirstName(), account.getLastName(), account.getPassword(),
             account.getType(), account.getStatus()) == 1)
-=======
-    int failed = dblib.user_editUser(account.getFirstName(), account.getLastName(), account.getUsername(), account.getPassword(),
-                                     account.getType(), account.getStatus());
-    //(firstName, lastName, username, password, charType)
-    if(failed != -1)
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
       return true;
     else
       return false;    
@@ -201,16 +192,12 @@ public class DatabaseController{
     }
     return university;
   }
-<<<<<<< HEAD
   public void getUniversities() {
 	  String[][] array = dblib.university_getUniversities();
 	  for(int i = 0; i < array.length; i++) {
 		  System.out.println(array[i][0]);
 	  }
   }
-=======
-  
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
   public boolean addUser(String firstName, String lastName, String username, String password, char charType)
   {
     dblib.user_addUser(firstName, lastName, username, password, charType);
@@ -220,22 +207,22 @@ public class DatabaseController{
   public boolean login(String username, String password)
   {
     String[][] users = dblib.user_getUsers();
-<<<<<<< HEAD
-    for(int i = 0; i < users.length; i++)
-    {
     	//System.out.println(users[i][2]  + " " + users[i][3] + " " + users[i][5] + " " + users.length);
     	
-     if (users[i][2].equals(username) )//&& users[i][3].equals(password) )//&& users[i][5].equals("Y"))
-     {
-    	 if(users[i][3].equals(password)) {
-    		 if(users[i][5].equals("Y")) {
-    			 return true;
-    	 }
-    	 }
-     }
-    }
-    return false;
-    }
+    	for(int i = 0; i<users.length; i++)
+        {
+         if (users[i][2].equals(username) ) {
+        	 if(users[i][3].equals(password)) {
+        		 if(users[i][5].equals('Y')) {
+        			 return true;
+        		 }
+        	 }
+         }
+        }
+        return false;
+      }
+    
+    
     //return false;
   public ArrayList<String> getEmphasis(String u) {
 	  String[][] emphasis = dblib.university_getNamesWithEmphases();
@@ -249,19 +236,4 @@ public class DatabaseController{
 	  }
 	  return majors;
   }
-  }
-  
-
-=======
-    for(int i = 0; i<users.length; i++)
-    {
-     if (users[i][2].equals(username) && users[i][3].equals(password) && users[i][5].equals('Y'))
-     {
-      return true;
-     }
-    }
-    return false;
-  }
 }
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
-

@@ -1,15 +1,5 @@
 package entity;
-<<<<<<< HEAD
-=======
-import dblibrary.project.csci230.*;
-import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-import entity.*;
-import interaction.*;
-import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 
 /**
  * Administration Entity that stores all the information pertaining to a an Admin account.
@@ -25,12 +15,10 @@ import controller.*;
 
 public class Administration
 {
-<<<<<<< HEAD
-=======
+
   private String userName;
   private String password;
   
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
   /**
    * This constructor allows for an admin account to be created with a username and password
    * 
@@ -39,11 +27,10 @@ public class Administration
    */
   public Administration(String userName, String password)
   {
-<<<<<<< HEAD
-=======
+
     this.userName = userName;
     this.password = password;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
   }
   
   //Do we need getter/setter methods?

@@ -1,18 +1,8 @@
 //Account Controller
 package controller;
 
-<<<<<<< HEAD
-import entity.*;
-=======
-import java.io.*;
-import java.lang.*;
-import java.util.*;
-import dblibrary.project.csci230.*;
 
-import entity.*;
-import interaction.*;
-import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+import entity.Account;
 
 //import stackoverflow.*;
 public class AccountController{
@@ -57,25 +47,13 @@ public class AccountController{
    * @param p the password of the user
    */
   public boolean login(String u, String p){
-<<<<<<< HEAD
-    boolean loggedOn = false;
+    boolean loggedOn=false;
     boolean isActive = dbc.login(u, p);
-    //System.out.println("Here!");
     ac = new Account(u, p);
-    if (isActive)
+    if(isActive)
     {
       loggedOn = ac.login();
       if (loggedOn)
-=======
-    boolean loggedOn=false;
-    boolean isActive = dbc.login(u, p);
-    System.out.println("Here!");
-    ac = new Account(u, p);
-    if (isActive = true)
-    {
-      loggedOn = ac.login();
-      if (loggedOn = true)
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
       {
         return loggedOn; 
       }
@@ -84,11 +62,6 @@ public class AccountController{
         throw new  SecurityException ("Cannot log on twice");
       }
     }
-<<<<<<< HEAD
-    //System.out.println("Here2!");
-=======
-    System.out.println("Here2!");
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     return isActive;
   }  
   /**

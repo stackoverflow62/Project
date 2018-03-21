@@ -1,17 +1,6 @@
 package entity;
 
-<<<<<<< HEAD
-=======
-import dblibrary.project.csci230.*;
-import java.util.*;
-import java.lang.*;
-import java.io.*;
 
-import entity.*;
-import interaction.*;
-import controller.*;
-
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 /**
  * Account Entity that stores all the information pertaining to a school.
  * 

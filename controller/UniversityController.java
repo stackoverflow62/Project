@@ -1,20 +1,11 @@
 package controller;
 
-<<<<<<< HEAD
+
 import java.util.ArrayList;
 
 import dblibrary.project.csci230.UniversityDBLibrary;
 import entity.University;
-=======
-import java.io.*;
-import java.lang.*;
-import java.util.*;
-import dblibrary.project.csci230.*;
 
-import entity.*;
-import interaction.*;
-import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 
 //import stackoverflow.*;
 public class UniversityController{
@@ -112,11 +103,8 @@ public class UniversityController{
    * @throws IllegalArgumentException if the preconditions are not met
    * 
    */
-<<<<<<< HEAD
   public void viewUniversityDetails(University u, ArrayList<String> m)
-=======
-  public void viewUniversityDetails(University u)
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
   {
       
     System.out.println("University Name: " + u.getUniversityName());
@@ -135,11 +123,7 @@ public class UniversityController{
     System.out.println("University AcademicScale: " + u.getAcademicScale());
     System.out.println("University SocialScale: " + u.getSocialScale());
     System.out.println("University QualityOfLife: " + u.getQualityOfLife());
-<<<<<<< HEAD
     System.out.println("University Emphases: " + m);
-=======
-    System.out.println("University Emphases: " + u.getEmphases());
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     
   }
  /**

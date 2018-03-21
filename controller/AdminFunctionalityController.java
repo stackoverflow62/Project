@@ -1,9 +1,6 @@
 package controller;
 
-<<<<<<< HEAD
-import java.util.*;
-import entity.*;
-=======
+
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -11,7 +8,7 @@ import dblibrary.project.csci230.*;
 import entity.*;
 import interaction.*;
 import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+
 
 /** 
  * User Functionality Controller that the user can you to do actions 
@@ -48,11 +45,8 @@ public class AdminFunctionalityController
 //    char t = scan.next().charAt(0);
 //    System.out.println("Enter the status of the account. [A/D]");
 //    char s = scan.next().charAt(0);
-<<<<<<< HEAD
+
     if (true)//bananas
-=======
-    if (confirm())
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     {
       DatabaseController dbc = new DatabaseController();
       stu = new Account(u, f, l, p, t, s);
@@ -74,11 +68,7 @@ public class AdminFunctionalityController
   public void deactivate(Account a)
   {
     stu = a;
-<<<<<<< HEAD
     if (true)//bananas
-=======
-    if (confirm())
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     {
       stu.setStatus('N');
       DatabaseController dbc = new DatabaseController();

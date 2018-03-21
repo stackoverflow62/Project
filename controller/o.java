@@ -1,13 +1,5 @@
 package controller;
 
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import dblibrary.project.csci230.UniversityDBLibrary;
-import entity.Account;
-import entity.University;
-
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -15,7 +7,6 @@ import dblibrary.project.csci230.*;
 import entity.*;
 import interaction.*;
 import controller.*;
-
 /** 
  * The Student Functionality Controller class does actions for the student user  
  * 
@@ -25,8 +16,7 @@ import controller.*;
 
 public class StudentFunctionalityController 
 {
-
-  Account stu = new Account(null, null, null, null, 'u', 'Y');
+  Account stu = new Account(null, null, null, null, 's', 'a');
   UniversityDBLibrary dblib = new UniversityDBLibrary("stacko", "csci230");
   DatabaseController dbc = new DatabaseController();
   /** 
@@ -36,7 +26,7 @@ public class StudentFunctionalityController
    * @param l the last name of the student
    * @param p the password of the student
    */
-  public void manageDetails(String u, String f, String l, String p) 
+  public void manageDetails(String f, String l, String p) 
   {
     
 //    Scanner scan = new Scanner(System.in);  
@@ -49,14 +39,12 @@ public class StudentFunctionalityController
 //    String p = scan.next();
 //    char t = 'S';
 //    char s = 'A';
-    if (true) /// bananas
-
+    if (confirm())
     {
       
       stu.setFirstname(f);
       stu.setLastname(l);
       stu.setPassword(p);
-      stu.setUserName(u);
       
       DatabaseController dbc = new DatabaseController();
       
@@ -92,12 +80,11 @@ public class StudentFunctionalityController
    * 
    * @return an ArrayList of universities
    */
-  public ArrayList<String> viewSavedUniversities(String userName) {
+  public ArrayList<University> viewSavedUniversities() {
     
-//    ArrayList<University> schoolInfo = new ArrayList<University>();
-    String[][] school = dblib.user_getUsernamesWithSavedSchools();
+    ArrayList<University> schoolInfo = new ArrayList<University>();
+    String[][] school = dblib.university_getUniversities();
     String[][] empArr = dblib.university_getNamesWithEmphases();
-    ArrayList<String> returnSaveSchool = new ArrayList<String>();
     for(int i =0 ; i < school.length; i++){
       ArrayList<String> emphases = new ArrayList<String>();
       for(int j = 0; j < empArr.length; j++){
@@ -105,27 +92,15 @@ public class StudentFunctionalityController
           emphases.add(empArr[j][1]);
         }
       }
-      for(int n =0; n<school.length;n++)
-      {
-        if(school[n][0].equals(userName))
-        {
-          for(int x = 0; x < school[n].length; x++)
-          {
-            returnSaveSchool.add(school[n][x]);
-          }
-        }
-      }
-            
-//      University university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
-//                                             Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
-//                                             Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
-//                                             Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
-//                                             Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
-      //schoolInfo.add(university);
-      //System.out.println(schoolInfo);
+      University university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
+                                             Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
+                                             Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
+                                             Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
+                                             Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
+      schoolInfo.add(university);
+      System.out.println(schoolInfo);
     }
-    System.out.println(returnSaveSchool);
-    return returnSaveSchool;
+    return schoolInfo;
   }
   /**
    * This allows the user to get the university information.
@@ -156,9 +131,7 @@ public class StudentFunctionalityController
         }
       }
     }
-    // System.out.println(university);
     return university;
-   
   }
   public void saveUniversity(String userName,String schoolName)
   {
