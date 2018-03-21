@@ -1,8 +1,18 @@
 package controller;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
 import dblibrary.project.csci230.UniversityDBLibrary;
+=======
+import dblibrary.project.csci230.*;
+import java.io.*;
+import java.util.*;
+
+import entity.*;
+import interaction.*;
+import controller.*;
+>>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 
 /**
  * This class is the Database controller that allows a user to access the database and change things.
@@ -35,7 +45,12 @@ public class SearchController{
   
   public SearchController()
   {
+<<<<<<< HEAD
     
+=======
+    //I don't know if I need to add anything here MAKE SURE WE UPDATE OR DELETE THIS COMMENT 
+    String message = "SearchController has been created";
+>>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
   }
   
   /**
@@ -67,6 +82,10 @@ public class SearchController{
     
     String[][] school = dblib.university_getUniversities();
     String[][] results = new String[school.length][2];
+<<<<<<< HEAD
+=======
+    String[][] printr = new String[school.length][2];
+>>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     Integer count;
     //String[][] empArr = dblib.university_getNamesWithEmphases();
     for(int i =0 ; i < school.length; i++)
@@ -148,6 +167,11 @@ public class SearchController{
       results[i][1] = Integer.toString(count);
       //System.out.println(results[i][0] + " " + results[i][1]);
     }
+<<<<<<< HEAD
+=======
+    int somethingCounter = 0;
+    
+>>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     for(Integer matchResults = 18; matchResults > 0; matchResults--)
     {
       

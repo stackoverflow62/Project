@@ -1,11 +1,5 @@
 package controller;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-
-import dblibrary.project.csci230.UniversityDBLibrary;
-import entity.University;
-=======
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -14,7 +8,6 @@ import dblibrary.project.csci230.*;
 import entity.*;
 import interaction.*;
 import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 
 //import stackoverflow.*;
 public class UniversityController{
@@ -48,10 +41,9 @@ public class UniversityController{
   public void addUniversity(String schoolName, String state, String location, String control, int numStudents,
                             double female, double satVerb, double satMath, double expenses, double finAid, int numApplicants,
                             double numAdmitted, double numEnrolled, int acaScale, int socScale, int qualityLife){
-    dblib.university_addUniversity(schoolName, state, location, control, numStudents,
+    University ad = new University(schoolName, state, location, control, numStudents,
                                    female, satVerb, satMath, expenses, finAid, numApplicants,
                                    numAdmitted, numEnrolled, acaScale, socScale, qualityLife);
-    //dbc.university_addUniversity
     
   }
   /**
@@ -75,7 +67,6 @@ public class UniversityController{
                                              Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
                                              Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
       schoolInfo.add(university);
-      
     }
     return schoolInfo;
   }
@@ -112,11 +103,7 @@ public class UniversityController{
    * @throws IllegalArgumentException if the preconditions are not met
    * 
    */
-<<<<<<< HEAD
-  public void viewUniversityDetails(University u, ArrayList<String> m)
-=======
   public void viewUniversityDetails(University u)
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
   {
       
     System.out.println("University Name: " + u.getUniversityName());
@@ -135,11 +122,7 @@ public class UniversityController{
     System.out.println("University AcademicScale: " + u.getAcademicScale());
     System.out.println("University SocialScale: " + u.getSocialScale());
     System.out.println("University QualityOfLife: " + u.getQualityOfLife());
-<<<<<<< HEAD
-    System.out.println("University Emphases: " + m);
-=======
     System.out.println("University Emphases: " + u.getEmphases());
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     
   }
  /**

@@ -1,9 +1,5 @@
 package controller;
 
-<<<<<<< HEAD
-import java.util.*;
-import entity.*;
-=======
 import java.io.*;
 import java.lang.*;
 import java.util.*;
@@ -11,7 +7,6 @@ import dblibrary.project.csci230.*;
 import entity.*;
 import interaction.*;
 import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 
 /** 
  * User Functionality Controller that the user can you to do actions 
@@ -48,11 +43,7 @@ public class AdminFunctionalityController
 //    char t = scan.next().charAt(0);
 //    System.out.println("Enter the status of the account. [A/D]");
 //    char s = scan.next().charAt(0);
-<<<<<<< HEAD
-    if (true)//bananas
-=======
     if (confirm())
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     {
       DatabaseController dbc = new DatabaseController();
       stu = new Account(u, f, l, p, t, s);
@@ -67,25 +58,16 @@ public class AdminFunctionalityController
 //    scan.close();
   }
   /**
-   * To deactivate a user's account.If decide not to then cancel the change.
+   * To deactivate a user's account.If decide not to then cancle the change.
    * 
    * @param s the status of the user
    */
-  public void deactivate(Account a)
+  public void deactivate(char s, Account a)
   {
     stu = a;
-<<<<<<< HEAD
-    if (true)//bananas
-=======
     if (confirm())
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     {
-      stu.setStatus('N');
-      DatabaseController dbc = new DatabaseController();
-      if (dbc.editUser(stu))
-        System.out.println("The changes have been made.");
-      else 
-        System.out.println("There was an error editing this user");
+      stu.setStatus(s);
     }
     else 
       System.out.println("The changes have been cancelled");

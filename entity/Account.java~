@@ -1,7 +1,5 @@
 package entity;
 
-<<<<<<< HEAD
-=======
 import dblibrary.project.csci230.*;
 import java.util.*;
 import java.lang.*;
@@ -11,7 +9,6 @@ import entity.*;
 import interaction.*;
 import controller.*;
 
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 /**
  * Account Entity that stores all the information pertaining to a school.
  * 
@@ -66,13 +63,12 @@ public class Account
  /**
   * Sets the variable isLoggedIn to true
   */
-  public boolean login()
+  public void logIn()
   {
     if(!isLoggedIn)
     {
       isLoggedIn = true;
     }
-    return isLoggedIn;
   }
   /**
    * Sets the first name of the user

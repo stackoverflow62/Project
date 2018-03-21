@@ -1,22 +1,10 @@
 //studentInteraction.java
 package interaction;
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import controller.AccountController;
-import controller.DatabaseController;
-import controller.SearchController;
-import controller.StudentFunctionalityController;
-import controller.UniversityController;
-import entity.University;
-=======
 import java.util.*;
 
 import entity.*;
 import interaction.*;
 import controller.*;
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
 
 /*
  * Class that user will interact with for any methods they need
@@ -60,10 +48,6 @@ public class StudentInteraction
     this.firstName = firstName;
     this.lastName = lastName;
     this.password = password;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
   }
   /*
    * Will get input from the users off of the criteria they are searching for in
@@ -87,8 +71,8 @@ public class StudentInteraction
    * @param qualityOfLifeScale the school's quality of life for students
    */
   public void search(String universityName, String state, String location, String control, String numberOfStudents, String female, String satVerbal,
-                     String satMath, String expenses, String financialAid, String numberOfApplicants, String admitted, String enrolled,
-                     String academicScale, String socialScale, String qualityOfLifeScale)
+                                      String satMath, String expenses, String financialAid, String numberOfApplicants, String admitted, String enrolled,
+                                      String academicScale, String socialScale, String qualityOfLifeScale)
   {
     ArrayList<String> results = new ArrayList<String>();
 //    Scanner sc = new Scanner(System.in);
@@ -127,8 +111,8 @@ public class StudentInteraction
     
     SearchController searchController = new SearchController();;
     results = searchController.search(universityName, state, location, control, numberOfStudents, female, satVerbal,
-                                      satMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
-                                      academicScale, socialScale, qualityOfLifeScale);
+                            satMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
+                            academicScale, socialScale, qualityOfLifeScale);
     for(String s : results)
     {
       System.out.println(s);
@@ -142,11 +126,7 @@ public class StudentInteraction
    * @param lastName the last name of the student
    * @param password the password associated with the account
    */
-<<<<<<< HEAD
-  public void manageProfile(String username, String firstName, String lastName,String password)
-=======
   public void manageProfile(String firstName, String lastName,String password)
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
   {
 //    Scanner sc = new Scanner(System.in);
 //    System.out.println("Enter new First Name:");
@@ -157,20 +137,16 @@ public class StudentInteraction
 //    String password = sc.nextLine();
     
     StudentFunctionalityController sfc = new StudentFunctionalityController();
-<<<<<<< HEAD
-    sfc.manageDetails(username, firstName, lastName, password);
-=======
     sfc.manageDetails(firstName, lastName, password);
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     
   }
   
   /*
    * Calls the viewSavedUniversitys method in the StudentFunctionalityController
    */
-  public void viewSavedUniversities(String username)
+  public void viewSavedUniversities()
   {
-    sfc.viewSavedUniversities(username);
+    sfc.viewSavedUniversities();
   }
   
   /*
@@ -189,7 +165,7 @@ public class StudentInteraction
    * 
    * @param university A university object to add to the saved university list
    */
-  public void saveUniversity (String userName,String university)
+  public void saveUniversity (String university,String userName)
   {
     
     sfc.saveUniversity(userName,university);
@@ -202,7 +178,7 @@ public class StudentInteraction
    */
   public void viewUniversityDetails(University university)
   {
-    
+ 
     uc.viewUniversityDetails(university);
   }
   
@@ -215,10 +191,6 @@ public class StudentInteraction
     
     Scanner sc = new Scanner(System.in);
     System.out.println("Are you sure you want to make these changes?");
-<<<<<<< HEAD
-    
-=======
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     String response = sc.nextLine();
     if (response.equals("Yes") || response.equals("yes") || response.equals("Y") || response.equals("y"))
     {
@@ -233,10 +205,6 @@ public class StudentInteraction
       System.out.println("Please enter a valid response (y or n) \n");
       this.confirmation();
     }
-<<<<<<< HEAD
-    sc.close();
-=======
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
     return false;
   }
   
@@ -248,29 +216,10 @@ public class StudentInteraction
    */
   public void login(String username, String password)
   {
-   ac = new AccountController (username);
-<<<<<<< HEAD
-   //System.out.println("Here3");
-   boolean loggedOn = ac.login(username, password);
-   //System.out.println("Here4");
-   if (loggedOn)
-   {
-     System.out.println("Logged In Successfully");
-   }
-   else {
-     System.out.println("There was an error logging you in. Please check your information and try again");
-   }
-=======
-   System.out.println("Here3");
-   boolean loggedOn = ac.login(username, password);
-   System.out.println("Here4");
-   if (loggedOn = true)
-   {
-     System.out.println("Logged In Successfully");
-   }
-     System.out.println("There was an error logging you in. Please check your information and try again");
     
->>>>>>> 018a1a6e394a193d6ca2d61190bb64ac1b91e19d
+   ac = new AccountController(username);
+   ac.login(username, password);
+   
   }
   
   /*
