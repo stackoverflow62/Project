@@ -38,10 +38,10 @@ public class DatabaseController{
    */
   public boolean addUniversity(University university){
     int addFailed = 0;
-    int failed = dblib.university_addUniversity(university.getUniversityName(), university.getUniversityState(), university.getLocationType(), university.getControl(), (int)university.getNumEnrolled(),
+    int failed = dblib.university_addUniversity(university.getUniversityName(), university.getUniversityState(), university.getLocationType(), university.getControl(), (int)university.getNumOfStudents(),
                                                 university.getFemalePercentage(), university.getSATVerbal(), university.getSATMath(), university.getExpenses(), 
                                                 university.getFinancialAid(), university.getNumApplicants(), university.getNumAdmitted(), university.getNumEnrolled(),
-                                                university.getAcademicScale (), university.getSocialScale(), university.getQualityOfLife());
+                                                university.getAcademicScale(), university.getSocialScale(), university.getQualityOfLife());
     ArrayList<String> addArray = university.getEmphases();
     for(int i=0; i < addArray.size(); i++){
       addFailed = dblib.university_addUniversityEmphasis(university.getUniversityName(), addArray.get(i));
@@ -62,23 +62,23 @@ public class DatabaseController{
     String[][] array = dblib.university_getNamesWithEmphases();
     ArrayList<String> oldArray = new ArrayList<String>();
     int updateFailed = 0;
-    int failed = dblib.university_editUniversity(university.getUniversityName(), university.getUniversityState(), university.getLocationType(), university.getControl(), (int)university.getNumEnrolled(),
+    int failed = dblib.university_editUniversity(university.getUniversityName(), university.getUniversityState(), university.getLocationType(), university.getControl(), (int)university.getNumOfStudents(),
                                                  university.getFemalePercentage(), university.getSATVerbal(), university.getSATMath(), university.getExpenses(), 
                                                  university.getFinancialAid(), university.getNumApplicants(), university.getNumAdmitted(), university.getNumEnrolled(),
-                                                 university.getSocialScale(), university.getSocialScale(), university.getQualityOfLife());  
-    if(failed != 1){
+                                                 university.getAcademicScale(), university.getSocialScale(), university.getQualityOfLife());  
+    if(failed != -1){
       return false;
     }
     for(int i =0 ; i < array.length; i++){
       if(array[i][0].equals(university.getUniversityName())){
-        oldArray.add(array[i][1]);
+        oldArray.add(array[i][0]);
       }
     }
-    if(oldArray != null){
-      for(int i = 0; i < oldArray.size(); i++){
-        dblib.university_removeUniversityEmphasis(university.getUniversityName(), oldArray.get(i));
-      }
-    }
+//    if(oldArray != null){
+//      for(int i = 0; i < oldArray.size(); i++){
+//        dblib.university_removeUniversityEmphasis(university.getUniversityName(), oldArray.get(i));
+//      }
+//    }
 //    ArrayList<String> newArray = university.getEmphases();
 //    for(int i = 0; i < newArray.size(); i++){
 //      updateFailed = dblib.university_addUniversityEmphasis(university.getUniversityName(), newArray.get(i));
@@ -114,7 +114,8 @@ public class DatabaseController{
    * 
    * @return true if the university was added, false otherwise
    */
-  public boolean saveUniversity(String username, String schoolName){
+  public boolean saveUniversity(String username, String schoolName)
+  {
    int failed = dblib.user_saveSchool(username, schoolName);
    if(failed != -1)
      return true;
@@ -189,6 +190,19 @@ public class DatabaseController{
   {
     dblib.user_addUser(firstName, lastName, username, password, charType);
     return true;
+  }
+  
+  public boolean login(String username, String password)
+  {
+    String[][] users = dblib.user_getUsers();
+    for(int i = 0; i<users.length; i++)
+    {
+     if (users[i][2].equals(username) && users[i][3].equals(password) && users[i][5].equals('Y'))
+     {
+      return true;
+     }
+    }
+    return false;
   }
 }
 

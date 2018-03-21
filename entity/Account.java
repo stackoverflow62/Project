@@ -63,12 +63,13 @@ public class Account
  /**
   * Sets the variable isLoggedIn to true
   */
-  public void logIn()
+  public boolean login()
   {
     if(!isLoggedIn)
     {
       isLoggedIn = true;
     }
+    return isLoggedIn;
   }
   /**
    * Sets the first name of the user

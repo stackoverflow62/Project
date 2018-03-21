@@ -147,46 +147,48 @@ public class AdminInteraction
    * Gets any details to edit a university, then calls the edit university method in the
    * university controller
    */
-  public void editUniversity()
+  public void editUniversity(String universityName, String state, String location, String control, int numberOfStudents, double female, double SATVerbal,
+                                      double SATMath, double expenses, double financialAid, int numberOfApplicants, double admitted, double enrolled,
+                                      int academicScale, int socialScale, int qualityOfLifeScale)
   {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Enter the University Name:");
-    String universityName = sc.nextLine();
-    System.out.println("Enter the State:");
-    String state = sc.nextLine();
-    System.out.println("Enter the University location: (e.g. urban, rural, suburban)");
-    String location = sc.nextLine();
-    System.out.println("Enter the control of the university (e.g. private, public)");
-    String control = sc.nextLine();
-    System.out.println("Enter the desired Number of Students");
-    int numberOfStudents = Integer.parseInt(sc.nextLine());
-    System.out.println("Enter the desired percentage of female students");
-    double female = Double.parseDouble(sc.nextLine());
-    System.out.println("Enter the SAT Verbal Score");
-    double satVerbal = Double.parseDouble(sc.nextLine());
-    System.out.println("Enter the SAT Math Score");
-    double satMath = Double.parseDouble(sc.nextLine());
-    System.out.println("Enter the expenses");
-    double expenses = Double.parseDouble(sc.nextLine());
-    System.out.println("Enter the percentage of students to receive financial aid");
-    double financialAid = Double.parseDouble(sc.nextLine());
-    System.out.println("Enter the Number of Applicants");
-    int numberOfApplicants = Integer.parseInt(sc.nextLine());
-    System.out.println("Enter the percentage of applicants admitted");
-    double admitted = Double.parseDouble(sc.nextLine());
-    System.out.println("Enter the percentage of admitted students who enroll");
-    double enrolled = Double.parseDouble(sc.nextLine());
-    System.out.println("Enter the academic scale (1-5):");
-    int academicScale = Integer.parseInt(sc.nextLine());
-    System.out.println("Enter the social scale (1-5):");
-    int socialScale = Integer.parseInt(sc.nextLine());
-    System.out.println("Enter the Quality of Life (1-5)");
-    int qualtiyOfLifeScale = Integer.parseInt(sc.nextLine());
+//    Scanner sc = new Scanner(System.in);
+//    System.out.println("Enter the University Name:");
+//    String universityName = sc.nextLine();
+//    System.out.println("Enter the State:");
+//    String state = sc.nextLine();
+//    System.out.println("Enter the University location: (e.g. urban, rural, suburban)");
+//    String location = sc.nextLine();
+//    System.out.println("Enter the control of the university (e.g. private, public)");
+//    String control = sc.nextLine();
+//    System.out.println("Enter the desired Number of Students");
+//    int numberOfStudents = Integer.parseInt(sc.nextLine());
+//    System.out.println("Enter the desired percentage of female students");
+//    double female = Double.parseDouble(sc.nextLine());
+//    System.out.println("Enter the SAT Verbal Score");
+//    double satVerbal = Double.parseDouble(sc.nextLine());
+//    System.out.println("Enter the SAT Math Score");
+//    double satMath = Double.parseDouble(sc.nextLine());
+//    System.out.println("Enter the expenses");
+//    double expenses = Double.parseDouble(sc.nextLine());
+//    System.out.println("Enter the percentage of students to receive financial aid");
+//    double financialAid = Double.parseDouble(sc.nextLine());
+//    System.out.println("Enter the Number of Applicants");
+//    int numberOfApplicants = Integer.parseInt(sc.nextLine());
+//    System.out.println("Enter the percentage of applicants admitted");
+//    double admitted = Double.parseDouble(sc.nextLine());
+//    System.out.println("Enter the percentage of admitted students who enroll");
+//    double enrolled = Double.parseDouble(sc.nextLine());
+//    System.out.println("Enter the academic scale (1-5):");
+//    int academicScale = Integer.parseInt(sc.nextLine());
+//    System.out.println("Enter the social scale (1-5):");
+//    int socialScale = Integer.parseInt(sc.nextLine());
+//    System.out.println("Enter the Quality of Life (1-5)");
+//    int qualtiyOfLifeScale = Integer.parseInt(sc.nextLine());
     
     DatabaseController dbc = new DatabaseController();
-    University uni = new University(universityName, state, location, control, numberOfStudents, female, satVerbal,
-                      satMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
-                      academicScale, socialScale, qualtiyOfLifeScale);
+    University uni = new University(universityName, state, location, control, numberOfStudents, female, SATVerbal,
+                      SATMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
+                      academicScale, socialScale, qualityOfLifeScale);
     dbc.editUniversity(uni);
   }
   

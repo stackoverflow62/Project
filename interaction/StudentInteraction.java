@@ -71,8 +71,8 @@ public class StudentInteraction
    * @param qualityOfLifeScale the school's quality of life for students
    */
   public void search(String universityName, String state, String location, String control, String numberOfStudents, String female, String satVerbal,
-                                      String satMath, String expenses, String financialAid, String numberOfApplicants, String admitted, String enrolled,
-                                      String academicScale, String socialScale, String qualityOfLifeScale)
+                     String satMath, String expenses, String financialAid, String numberOfApplicants, String admitted, String enrolled,
+                     String academicScale, String socialScale, String qualityOfLifeScale)
   {
     ArrayList<String> results = new ArrayList<String>();
 //    Scanner sc = new Scanner(System.in);
@@ -111,8 +111,8 @@ public class StudentInteraction
     
     SearchController searchController = new SearchController();;
     results = searchController.search(universityName, state, location, control, numberOfStudents, female, satVerbal,
-                            satMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
-                            academicScale, socialScale, qualityOfLifeScale);
+                                      satMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
+                                      academicScale, socialScale, qualityOfLifeScale);
     for(String s : results)
     {
       System.out.println(s);
@@ -144,9 +144,9 @@ public class StudentInteraction
   /*
    * Calls the viewSavedUniversitys method in the StudentFunctionalityController
    */
-  public void viewSavedUniversities()
+  public void viewSavedUniversities(String username)
   {
-    sfc.viewSavedUniversities();
+    sfc.viewSavedUniversities(username);
   }
   
   /*
@@ -165,10 +165,10 @@ public class StudentInteraction
    * 
    * @param university A university object to add to the saved university list
    */
-  public void saveUniversity (String university)
+  public void saveUniversity (String userName,String university)
   {
     
-    dbc.saveUniversity(username, university); 
+    sfc.saveUniversity(userName,university);
   }
   
   /*
@@ -178,7 +178,7 @@ public class StudentInteraction
    */
   public void viewUniversityDetails(University university)
   {
- 
+    
     uc.viewUniversityDetails(university);
   }
   
@@ -216,10 +216,16 @@ public class StudentInteraction
    */
   public void login(String username, String password)
   {
+   ac = new AccountController (username);
+   System.out.println("Here3");
+   boolean loggedOn = ac.login(username, password);
+   System.out.println("Here4");
+   if (loggedOn = true)
+   {
+     System.out.println("Logged In Successfully");
+   }
+     System.out.println("There was an error logging you in. Please check your information and try again");
     
-   ac = new AccountController(username);
-   ac.login(username, password);
-   
   }
   
   /*

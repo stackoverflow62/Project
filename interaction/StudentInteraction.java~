@@ -70,10 +70,11 @@ public class StudentInteraction
    * @param socialScale the school's social rating
    * @param qualityOfLifeScale the school's quality of life for students
    */
-  public void search(String universityName, String state, String location, String control, int numberOfStudents, double female, double SATVerbal,
-                                      double SATMath, double expenses, double financialAid, int numberOfApplicants, double admitted, double enrolled,
-                                      int academicScale, int socialScale, int qualityOfLifeScale)
+  public void search(String universityName, String state, String location, String control, String numberOfStudents, String female, String satVerbal,
+                                      String satMath, String expenses, String financialAid, String numberOfApplicants, String admitted, String enrolled,
+                                      String academicScale, String socialScale, String qualityOfLifeScale)
   {
+    ArrayList<String> results = new ArrayList<String>();
 //    Scanner sc = new Scanner(System.in);
 //    System.out.println("Enter the University Name:");
 //    String universityName = sc.nextLine();
@@ -109,9 +110,13 @@ public class StudentInteraction
 //    int qualityOfLifeScale = Integer.parseInt(sc.nextLine());
     
     SearchController searchController = new SearchController();;
-    searchController.search(universityName, state, location, control, numberOfStudents, female, SATVerbal,
-                            SATMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
+    results = searchController.search(universityName, state, location, control, numberOfStudents, female, satVerbal,
+                            satMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
                             academicScale, socialScale, qualityOfLifeScale);
+    for(String s : results)
+    {
+      System.out.println(s);
+    }
   }
   
   /*
@@ -160,10 +165,10 @@ public class StudentInteraction
    * 
    * @param university A university object to add to the saved university list
    */
-  public void saveUniversity (String university)
+  public void saveUniversity (String university,String userName)
   {
     
-    dbc.saveUniversity(username, university); 
+    sfc.saveUniversity(userName,university);
   }
   
   /*

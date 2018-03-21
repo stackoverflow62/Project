@@ -10,7 +10,7 @@ import controller.*;
 /** 
  * The Student Functionality Controller class does actions for the student user  
  * 
- * @author Ramon Angeles, Jonathan First, James H. , Jamie Veag, Vue Xiong
+ * @author Ramon Angeles, Jonathan First, James H. , Jaime Vega, Vue Xiong
  * @version Feb 25, 2018
  */
 
@@ -18,6 +18,7 @@ public class StudentFunctionalityController
 {
   Account stu = new Account(null, null, null, null, 's', 'a');
   UniversityDBLibrary dblib = new UniversityDBLibrary("stacko", "csci230");
+  DatabaseController dbc = new DatabaseController();
   /** 
    * Edits the details of the students account
    * 
@@ -44,7 +45,7 @@ public class StudentFunctionalityController
       stu.setFirstname(f);
       stu.setLastname(l);
       stu.setPassword(p);
-     
+      
       DatabaseController dbc = new DatabaseController();
       
       if (dbc.editUser(stu))
@@ -55,7 +56,7 @@ public class StudentFunctionalityController
     else 
       System.out.println("The changes have been cancelled");
     
-
+    
   }
   
   /** 
@@ -97,10 +98,11 @@ public class StudentFunctionalityController
                                              Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
                                              Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
       schoolInfo.add(university);
+      System.out.println(schoolInfo);
     }
     return schoolInfo;
   }
-    /**
+  /**
    * This allows the user to get the university information.
    * 
    * @param schoolName the name of the school that the user wants the information of
@@ -108,52 +110,59 @@ public class StudentFunctionalityController
    * @returns a University entity with the information of the university
    */
   public University getUniversity(String schoolName){
-  ArrayList<String> emphases = new ArrayList<String>();
-  String[][] arr = dblib.university_getNamesWithEmphases();
-  String[][] school = dblib.university_getUniversities();
-  University university = null;
+    ArrayList<String> emphases = new ArrayList<String>();
+    String[][] arr = dblib.university_getNamesWithEmphases();
+    String[][] school = dblib.university_getUniversities();
+    University university = null;
     
-  for(int i =0 ; i < arr.length; i++){
-   if(arr[i][0].equals(schoolName)){
-    emphases.add(arr[i][1]);
-   }
-  }  
-  for(int i =0 ; i< school.length ; i++){
-   if(school[i][0].equals(schoolName)){
-    for(int j = 0; j < school[i].length; j++){
-     university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
-       Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
-       Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
-       Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
-       Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
+    for(int i =0 ; i < arr.length; i++){
+      if(arr[i][0].equals(schoolName)){
+        emphases.add(arr[i][1]);
+      }
+    }  
+    for(int i =0 ; i< school.length ; i++){
+      if(school[i][0].equals(schoolName)){
+        for(int j = 0; j < school[i].length; j++){
+          university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
+                                      Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
+                                      Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
+                                      Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
+                                      Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
+        }
+      }
     }
-   }
+    return university;
   }
-  return university;
+  public void saveUniversity(String userName,String schoolName)
+  {
+    dbc.saveUniversity(userName,schoolName); 
   }
-  
-/**
- * Allows the student to remove a school that they have saved.
- * 
- * @param user the username of the student account
- * @param school the name of the univeristy the student wants to remove
- * 
- * @return true if the school was remove, false otherwise
- */
+      
+  /**
+   * Allows the student to remove a school that they have saved.
+   * 
+   * @param user the username of the student account
+   * @param school the name of the univeristy the student wants to remove
+   * 
+   * @return true if the school was remove, false otherwise
+   */
   public boolean removeUniversity(String user, String school){
     University removeUniversity = getUniversity(school);
     if(removeUniversity == null){
       return false;
     }
-    ArrayList<String> oldArray = removeUniversity.getEmphases();
-    for(int i = 0; i < oldArray.size(); i++){
-      dblib.user_removeSchool(school, oldArray.get(i));
+    else{
+      //ArrayList<String> oldArray = removeUniversity.getEmphases();
+      //for(int i = 0; i < oldArray.size(); i++){
+        //dblib.user_removeSchool(school, oldArray.get(i));
+        dblib.user_removeSchool(user, removeUniversity.getUniversityName());
+      //}
+      int failed = dblib.university_deleteUniversity(removeUniversity.getUniversityName());
+      if(failed != -1){
+        return true;
+      }
+      else
+        return false;
     }
-    int failed = dblib.university_deleteUniversity(removeUniversity.getUniversityName());
-    if(failed != -1){
-      return true;
-    }
-    else
-      return false;
   }
 }

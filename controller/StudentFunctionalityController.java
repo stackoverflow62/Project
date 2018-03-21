@@ -18,6 +18,7 @@ public class StudentFunctionalityController
 {
   Account stu = new Account(null, null, null, null, 's', 'a');
   UniversityDBLibrary dblib = new UniversityDBLibrary("stacko", "csci230");
+  DatabaseController dbc = new DatabaseController();
   /** 
    * Edits the details of the students account
    * 
@@ -79,11 +80,12 @@ public class StudentFunctionalityController
    * 
    * @return an ArrayList of universities
    */
-  public ArrayList<University> viewSavedUniversities() {
+  public ArrayList<String> viewSavedUniversities(String userName) {
     
-    ArrayList<University> schoolInfo = new ArrayList<University>();
-    String[][] school = dblib.university_getUniversities();
+//    ArrayList<University> schoolInfo = new ArrayList<University>();
+    String[][] school = dblib.user_getUsernamesWithSavedSchools();
     String[][] empArr = dblib.university_getNamesWithEmphases();
+    ArrayList<String> returnSaveSchool = new ArrayList<String>();
     for(int i =0 ; i < school.length; i++){
       ArrayList<String> emphases = new ArrayList<String>();
       for(int j = 0; j < empArr.length; j++){
@@ -91,14 +93,27 @@ public class StudentFunctionalityController
           emphases.add(empArr[j][1]);
         }
       }
-      University university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
-                                             Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
-                                             Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
-                                             Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
-                                             Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
-      schoolInfo.add(university);
+      for(int n =0; n<school.length;n++)
+      {
+        if(school[n][0].equals(userName))
+        {
+          for(int x = 0; x < school[n].length; x++)
+          {
+            returnSaveSchool.add(school[n][x]);
+          }
+        }
+      }
+            
+//      University university = new University(school[i][0],school[i][1],school[i][2],school[i][3],Integer.parseInt(school[i][4]),
+//                                             Double.parseDouble(school[i][5]),Double.parseDouble(school[i][6]),Double.parseDouble(school[i][7]),
+//                                             Double.parseDouble(school[i][8]),Double.parseDouble(school[i][9]),Integer.parseInt(school[i][10]),
+//                                             Double.parseDouble(school[i][11]),Double.parseDouble(school[i][12]),Integer.parseInt(school[i][13]),
+//                                             Integer.parseInt(school[i][14]),Integer.parseInt(school[i][15]));
+      //schoolInfo.add(university);
+      //System.out.println(schoolInfo);
     }
-    return schoolInfo;
+    System.out.println(returnSaveSchool);
+    return returnSaveSchool;
   }
   /**
    * This allows the user to get the university information.
@@ -129,9 +144,15 @@ public class StudentFunctionalityController
         }
       }
     }
+    // System.out.println(university);
     return university;
+   
   }
-  
+  public void saveUniversity(String userName,String schoolName)
+  {
+    dbc.saveUniversity(userName,schoolName); 
+  }
+      
   /**
    * Allows the student to remove a school that they have saved.
    * 

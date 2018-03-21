@@ -24,6 +24,8 @@ public class Student
 {
   private String userName;
   private String password;
+  private String firstName;
+  private String lastName;
   private char accountStatus;//whether or not the student's account is still active or if it is deactivated.
   private University savedSchools;//the list of save schools for a student
   
@@ -58,6 +60,33 @@ public class Student
   public String getUserName()
   {
     return this.userName;
+  }
+  /**
+   * Allows user to change first Name
+   * 
+   * @param firstName the first name of a user
+   */
+  public void setFirstname(String firstName)
+  {
+    this.firstName = firstName;
+  }
+  /**
+   * Allows user to set last name of user account
+   * 
+   * @param lastName the last name of user
+   */
+  public void setLastname(String lastName)
+  {
+    this.lastName = lastName;
+  }
+  /**
+   * Allows user to cahnge their password
+   * 
+   * @param password the password of the user
+   */
+  public void setPassword(String password)
+  {
+    this.password = password;
   }
   
 }

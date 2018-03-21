@@ -1,8 +1,14 @@
+package entity;
+
 import dblibrary.project.csci230.*;
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
+import entity.*;
+import interaction.*;
+import controller.*;
+  
 /**
  * Student Entity that stores the information for a student instance. 
  * 

@@ -69,7 +69,7 @@ public class University
   
   public University(String school, String state,String locationType, String control, int numberOfStudents,double female,double satVerbal, 
                  double satMath,double expenses,double financialAid,int numOfApplicants, double numAdmitted, double enrolled, int academicScale,
-                 int socailScale, int qualityOfLife)
+                 int socialScale, int qualityOfLife)
   {
     this.school = school;
     this.state = state;

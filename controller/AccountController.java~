@@ -16,6 +16,7 @@ public class AccountController{
   DatabaseController dbc = new DatabaseController();
   public String[][] users = dbc.getUsers();
   private String username;
+  private String password;
   Account ac;
   
   /**
@@ -40,8 +41,9 @@ public class AccountController{
    *
    **/
   public AccountController(String u, String p){
-    login(u, p);
-    ac.logIn();
+    this.username = u;
+    this.password = p;    
+ //   ac = new Account(u, p);
   }
   
   /**
@@ -112,6 +114,7 @@ public class AccountController{
  */
   public void logout()
   {
+    ac = new Account(username, password);
     ac.logOut();
   }
 }

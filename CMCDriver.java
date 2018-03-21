@@ -17,7 +17,7 @@ public class CMCDriver {
     System.out.println("Password: 12345");
     StudentInteraction john = new StudentInteraction("john", "12345");
     System.out.println("its logged in");
-    john.login("john", "12345");
+    john.login("juser", "password");
     
     //user enters search
     System.out.println("Search citeria user enters.");
@@ -33,13 +33,13 @@ public class CMCDriver {
     System.out.println("");
     
     //View saved universities
-    john.saveUniversity("BARD");
+    john.saveUniversity("juser","BARNARD");
     
-    john.viewSavedUniversities();
+    john.viewSavedUniversities("juser");
     
     john.removeUniversity("John", "BARD");
     
-    john.viewSavedUniversities();
+    //john.viewSavedUniversities();
     System.out.println("");
     //john.viewUniversityDetails(University university);
     
@@ -66,11 +66,11 @@ public class CMCDriver {
     //admin adds a new school
     System.out.println("School citeria admin enters.");
     noreen.addUniversity("BARD","Ohio","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
-    noreen.addUniversity("CSB","MN","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,0,0);
+    noreen.addUniversity("CSB","MN","Small-city", "Private", 10000, 0.0,0.0,0.0, 32239.0,4000.0,0,0.0,0.0,0,2,0);
     System.out.println("");
     
     //admin edits a school-Ramon
-    noreen.editUniversity();
+    noreen.editUniversity("CSB","MN","Small-city", "Private", 5000, 100,10,20.0, 32239.0,4000.0,40,50.0,60.0,2,3,2);
     System.out.println("");
     
     //admin adds a user - James
