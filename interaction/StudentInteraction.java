@@ -235,9 +235,6 @@ public class StudentInteraction
    {
      System.out.println("Logged In Successfully");
    }
-   else {
-     System.out.println("There was an error logging you in. Please check your information and try again");
-   }
   }
   
   /*

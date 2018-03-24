@@ -209,9 +209,19 @@ public class DatabaseController{
     		 if(users[i][5].equals("Y")) {
     			 return true;
     	 }
+    		 else {
+    			System.out.println("You are not Active. Please contact Administration to proceed");
+    			return false;
+    		 }
+         }
+    	 else {
+    		 System.out.println("Incorrect Password. Please Try Again");
+    		 return false;
     	 }
-     }
     }
+     
+}
+    System.out.println("Username does not exist. Contract Administration to proceed");
     return false;
     }
     //return false;

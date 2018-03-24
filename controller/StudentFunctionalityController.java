@@ -99,7 +99,9 @@ public class StudentFunctionalityController
         {
           for(int x = 0; x < school[n].length; x++)
           {
+        	if (!returnSaveSchool.contains(school[n][x])) {
             returnSaveSchool.add(school[n][x]);
+        	}
           }
         }
       }
@@ -115,13 +117,17 @@ public class StudentFunctionalityController
     System.out.println(returnSaveSchool);
     return returnSaveSchool;
   }
+  
   /**
    * This allows the user to get the university information.
    * 
    * @param schoolName the name of the school that the user wants the information of
    * 
    * @returns a University entity with the information of the university
+   * 
+   *Change this
    */
+  /*
   public University getUniversity(String schoolName){
     ArrayList<String> emphases = new ArrayList<String>();
     String[][] arr = dblib.university_getNamesWithEmphases();
@@ -148,6 +154,7 @@ public class StudentFunctionalityController
     return university;
    
   }
+  */
   public void saveUniversity(String userName,String schoolName)
   {
     dbc.saveUniversity(userName,schoolName); 
@@ -162,7 +169,7 @@ public class StudentFunctionalityController
    * @return true if the school was remove, false otherwise
    */
   public boolean removeUniversity(String user, String school){
-    University removeUniversity = getUniversity(school);
+    University removeUniversity = dbc.getUniversity(school);
     if(removeUniversity == null){
       return false;
     }
