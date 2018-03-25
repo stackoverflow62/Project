@@ -237,7 +237,209 @@ public class DatabaseController{
 	  }
 	  return majors;
   }
+  public void getRecommendedSchools(University u)
+  {
+	ArrayList<String> recommendedSchools = new ArrayList<String>();
+	int numberOfStudentsMAX = 0;
+	int numberOfStudentsMIN = 50000;
+	double percentageFemaleMAX = 0;
+	double percentageFemaleMIN = 100.0;
+	double SATmathMAX = 0;
+	double SATmathMIN = 1600;
+	double SATverbalMAX = 0;
+	double SATverbalMIN = 1600;
+	double expensesMAX = 0;
+	double expensesMIN = 1000000000;
+	double financialAidMAX = 0;
+	double financialAidMIN = 100.0;
+	int numberOfApplicantsMAX = 0;
+	int numberOfApplicantsMIN = 1000000;
+	double percentAdmittedMAX = 0;
+	double percentAdmittedMIN = 100.0;
+	double percentEnrolledMAX = 0;
+	double percentEnrolledMIN = 100.0;
+	int academicScaleMAX = 5;
+	int academicScaleMIN = 1;
+	int socialScaleMAX = 5;
+	int socialScaleMIN = 1;
+	int lifeScaleMAX = 5;
+	int lifeScaleMIN = 1;
+	
+	String[][] universities = dblib.university_getUniversities();
+	String[][] emphasis = dblib.university_getNamesWithEmphases();
+	String[][] distances = new String[universities.length][2];
+	Double distance = 0.0;
+	
+	
+	for (int i = 0; i<universities.length; i++) {
+		for(int j = 0; j< universities[i].length; j++)
+		{
+			if(i == 4)
+			{
+				if (numberOfStudentsMAX < Integer.parseInt(universities[i][j]))
+				{
+					numberOfStudentsMAX = Integer.parseInt(universities[i][j]);
+				}
+				if (numberOfStudentsMIN > Integer.parseInt(universities[i][j]))
+				{
+					numberOfStudentsMIN = Integer.parseInt(universities[i][j]);
+				}
+			}
+			if(i == 5)
+			{
+				if (percentageFemaleMAX < Double.parseDouble(universities[i][j]))
+				{
+					percentageFemaleMAX = Double.parseDouble(universities[i][j]);
+				}
+				if (percentageFemaleMIN > Double.parseDouble(universities[i][j]))
+				{
+					percentageFemaleMIN = Double.parseDouble(universities[i][j]);
+				}
+			}
+			if(i == 6)
+			{
+				if (SATverbalMAX < Double.parseDouble(universities[i][j]))
+				{
+					SATverbalMAX = Double.parseDouble(universities[i][j]);
+				}
+				if (SATverbalMIN > Double.parseDouble(universities[i][j]))
+				{
+					SATverbalMIN = Double.parseDouble(universities[i][j]);
+				}
+			}
+			if(i == 7)
+			{
+				if (SATmathMAX < Double.parseDouble(universities[i][j]))
+				{
+					SATmathMAX = Double.parseDouble(universities[i][j]);
+				}
+				if (SATmathMIN > Double.parseDouble(universities[i][j]))
+				{
+					SATmathMIN = Double.parseDouble(universities[i][j]);
+				}
+			}
+			if(i == 8)
+			{
+				if (expensesMAX < Double.parseDouble(universities[i][j]))
+				{
+					expensesMAX = Double.parseDouble(universities[i][j]);
+				}
+				if (expensesMIN > Double.parseDouble(universities[i][j]))
+				{
+					expensesMIN = Double.parseDouble(universities[i][j]);
+				}
+			}
+			if(i == 9)
+			{
+				if (financialAidMAX < Double.parseDouble(universities[i][j]))
+				{
+					financialAidMAX = Double.parseDouble(universities[i][j]);
+				}
+				if (financialAidMIN > Double.parseDouble(universities[i][j]))
+				{
+					financialAidMIN = Double.parseDouble(universities[i][j]);
+				}
+			}
+			if(i == 10)
+			{
+				if (numberOfApplicantsMAX < Integer.parseInt(universities[i][j]))
+				{
+					numberOfApplicantsMAX = Integer.parseInt(universities[i][j]);
+				}
+				if (numberOfApplicantsMIN > Integer.parseInt(universities[i][j]))
+				{
+					numberOfApplicantsMIN = Integer.parseInt(universities[i][j]);
+				}
+			}
+			if(i == 11)
+			{
+				if (percentAdmittedMAX < Double.parseDouble(universities[i][j]))
+				{
+					percentAdmittedMAX = Double.parseDouble(universities[i][j]);
+				}
+				if (percentAdmittedMIN > Double.parseDouble(universities[i][j]))
+				{
+					percentAdmittedMIN = Double.parseDouble(universities[i][j]);
+				}
+			}
+			if(i == 12)
+			{
+				if (percentEnrolledMAX < Double.parseDouble(universities[i][j]))
+				{
+					percentEnrolledMAX = Double.parseDouble(universities[i][j]);
+				}
+				if (percentEnrolledMIN > Double.parseDouble(universities[i][j]))
+				{
+					percentEnrolledMIN = Double.parseDouble(universities[i][j]);
+				}
+			}	
+		}
+	}
+	for(int x = 0; x<universities[0].length; x++)
+	{
+		distances[x][0] = universities[0][x];
+		
+		if(!u.getUniversityName().equals(universities[x][0]))
+		{
+			distance++;
+		}
+		if(!u.getUniversityState().equals(universities[x][1]))
+		{
+			distance++;
+		}
+		if(!u.getLocationType().equals(universities[x][2]))
+		{
+			distance++;
+		}
+		if(!u.getControl().equals(universities[x][3]))
+		{
+			distance++;
+		}
+		
+		distance = distance + Math.abs(u.getNumOfStudents() - Integer.parseInt(universities[x][4]))/Math.abs(numberOfStudentsMAX-numberOfStudentsMIN)
+				+ Math.abs(u.getFemalePercentage() -Double.parseDouble(universities[x][5]))/Math.abs(percentageFemaleMAX - percentageFemaleMIN)
+				+ Math.abs(u.getSATVerbal() -Double.parseDouble(universities[x][6]))/Math.abs(SATverbalMAX - SATverbalMIN)
+				+ Math.abs(u.getSATMath() -Double.parseDouble(universities[x][7]))/Math.abs(SATmathMAX - SATmathMIN)
+				+ Math.abs(u.getExpenses() -Double.parseDouble(universities[x][8]))/Math.abs(expensesMAX - expensesMIN)
+				+ Math.abs(u.getFinancialAid() -Double.parseDouble(universities[x][9]))/Math.abs(financialAidMAX - financialAidMIN)
+				+ Math.abs(u.getNumApplicants() - Integer.parseInt(universities[x][10]))/Math.abs(numberOfApplicantsMAX-numberOfApplicantsMIN)
+				+ Math.abs(u.getNumAdmitted() -Double.parseDouble(universities[x][11]))/Math.abs(percentAdmittedMAX - percentAdmittedMIN)
+				+ Math.abs(u.getNumEnrolled() -Double.parseDouble(universities[x][12]))/Math.abs(percentEnrolledMAX - percentEnrolledMIN)
+				+ Math.abs(u.getAcademicScale() - Integer.parseInt(universities[x][13]))/Math.abs(academicScaleMAX-academicScaleMIN)
+				+ Math.abs(u.getSocialScale() - Integer.parseInt(universities[x][14]))/Math.abs(socialScaleMAX-socialScaleMIN)
+				+ Math.abs(u.getQualityOfLife() - Integer.parseInt(universities[x][15]))/Math.abs(lifeScaleMAX-lifeScaleMIN);
+				
+		
+		distances[x][1] = Double.toString(distance);
+		distance = 0.0;
+	}
+	
+	
+	for(int y = 0; y <5; y++)
+	{
+		double minimum = 1000000000;
+		int index = 0;
+		String name = "";
+		for(int z = 0; z<distances.length; z++)
+		{
+			if(Double.parseDouble(distances[z][1]) < minimum)
+			{
+			  minimum = Double.parseDouble(distances[z][1]);
+			  index = z;
+			  name = distances[z][0];
+			}
+			
+		}
+		distances[index][1] = Double.toString(10000000.0);
+		recommendedSchools.add(name);
+	}
+	for(String names: recommendedSchools)
+	{
+		System.out.println(names);
+	}
   }
+}
+  
   
 
 
