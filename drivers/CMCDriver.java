@@ -28,6 +28,7 @@ public class CMCDriver {
     System.out.println("Search citeria user enters.");
     System.out.println("Top 5 schools matching search:");
     john.search("AUBURN", "ALABAMA", "SMALL-CITY", "STATE", "35000", "21", "480", "545", "12468", "50", "5500", "90", "60", "2", "4", "4");
+    john.search("OF", "MINNESOTA", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
     System.out.println("");
    // University bard = new University();
     
@@ -44,7 +45,10 @@ public class CMCDriver {
     
     john.viewSavedUniversities("juser");
     
-    john.removeUniversity("John", "BARD");
+    //john.removeUniversity("John", "BARD");
+    
+    john.recommendedSchools();
+    
     
     //john.viewSavedUniversities();
     System.out.println("");
@@ -66,7 +70,7 @@ public class CMCDriver {
     System.out.println("");
   //admin views all schools
     System.out.println("Admin views all the schools");
-    noreen.viewUniversites();
+    //noreen.viewUniversites();
     //admin edits a user's information
     System.out.println("Edits John User's information \n");
     noreen.editStudent("juser", "Jon", "Uzer", "password", 'a', 'Y');
@@ -115,3 +119,4 @@ public class CMCDriver {
   
   }
 }
+

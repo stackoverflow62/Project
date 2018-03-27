@@ -274,7 +274,7 @@ public class DatabaseController{
 	for (int i = 0; i<universities.length; i++) {
 		for(int j = 0; j< universities[i].length; j++)
 		{
-			if(i == 4)
+			if(j == 4)
 			{
 				if (numberOfStudentsMAX < Integer.parseInt(universities[i][j]))
 				{
@@ -285,7 +285,7 @@ public class DatabaseController{
 					numberOfStudentsMIN = Integer.parseInt(universities[i][j]);
 				}
 			}
-			if(i == 5)
+			if(j == 5)
 			{
 				if (percentageFemaleMAX < Double.parseDouble(universities[i][j]))
 				{
@@ -296,7 +296,7 @@ public class DatabaseController{
 					percentageFemaleMIN = Double.parseDouble(universities[i][j]);
 				}
 			}
-			if(i == 6)
+			if(j == 6)
 			{
 				if (SATverbalMAX < Double.parseDouble(universities[i][j]))
 				{
@@ -307,7 +307,7 @@ public class DatabaseController{
 					SATverbalMIN = Double.parseDouble(universities[i][j]);
 				}
 			}
-			if(i == 7)
+			if(j == 7)
 			{
 				if (SATmathMAX < Double.parseDouble(universities[i][j]))
 				{
@@ -318,7 +318,7 @@ public class DatabaseController{
 					SATmathMIN = Double.parseDouble(universities[i][j]);
 				}
 			}
-			if(i == 8)
+			if(j == 8)
 			{
 				if (expensesMAX < Double.parseDouble(universities[i][j]))
 				{
@@ -329,7 +329,7 @@ public class DatabaseController{
 					expensesMIN = Double.parseDouble(universities[i][j]);
 				}
 			}
-			if(i == 9)
+			if(j == 9)
 			{
 				if (financialAidMAX < Double.parseDouble(universities[i][j]))
 				{
@@ -340,7 +340,7 @@ public class DatabaseController{
 					financialAidMIN = Double.parseDouble(universities[i][j]);
 				}
 			}
-			if(i == 10)
+			if(j == 10)
 			{
 				if (numberOfApplicantsMAX < Integer.parseInt(universities[i][j]))
 				{
@@ -351,7 +351,7 @@ public class DatabaseController{
 					numberOfApplicantsMIN = Integer.parseInt(universities[i][j]);
 				}
 			}
-			if(i == 11)
+			if(j == 11)
 			{
 				if (percentAdmittedMAX < Double.parseDouble(universities[i][j]))
 				{
@@ -362,7 +362,7 @@ public class DatabaseController{
 					percentAdmittedMIN = Double.parseDouble(universities[i][j]);
 				}
 			}
-			if(i == 12)
+			if(j == 12)
 			{
 				if (percentEnrolledMAX < Double.parseDouble(universities[i][j]))
 				{
@@ -375,9 +375,9 @@ public class DatabaseController{
 			}	
 		}
 	}
-	for(int x = 0; x<universities[0].length; x++)
+	for(int x = 0; x<universities.length; x++)
 	{
-		distances[x][0] = universities[0][x];
+		distances[x][0] = universities[x][0];
 		
 		if(!u.getUniversityName().equals(universities[x][0]))
 		{
@@ -417,12 +417,12 @@ public class DatabaseController{
 	
 	for(int y = 0; y <5; y++)
 	{
-		double minimum = 1000000000;
+		double minimum = 10000000;
 		int index = 0;
 		String name = "";
 		for(int z = 0; z<distances.length; z++)
 		{
-			if(Double.parseDouble(distances[z][1]) < minimum)
+			if(Double.parseDouble(distances[z][1]) < minimum  && Double.parseDouble(distances[z][1]) != 0.0)
 			{
 			  minimum = Double.parseDouble(distances[z][1]);
 			  index = z;
@@ -435,6 +435,7 @@ public class DatabaseController{
 	}
 	for(String names: recommendedSchools)
 	{
+		System.out.println("\n");
 		System.out.println(names);
 	}
   }

@@ -246,5 +246,12 @@ public class StudentInteraction
     ac.logout();
   }
   
+  public void recommendedSchools()
+  {
+	  University u = new University("AUBURN", "ALABAMA", "SMALL-CITY", "STATE", 35000, 21, 480, 545, 12468, 50, 5500, 90, 60, 2, 4, 4);  
+      dbc.getRecommendedSchools(u);
+  }
+  
+  
   
 }

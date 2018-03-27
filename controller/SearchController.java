@@ -67,105 +67,172 @@ public class SearchController{
     
     String[][] school = dblib.university_getUniversities();
     String[][] results = new String[school.length][2];
-    Integer count;
+    Integer count = 0;
+    Integer p = 0; //counts parameters passed
+    if(universityName != null && !universityName.equals(""))
+    {
+      p++;
+    }
+    if(state != null && !state.equals(""))
+    {
+      p++;
+    }
+    if(location != null && !location.equals(""))
+    {
+      p++;
+    }
+    
+    if(control != null && !control.equals(""))
+    {
+      p++;
+    }
+    if(numberOfStudents != null && !numberOfStudents.equals(""))
+    {
+      p++;
+    }
+    if(female != null && !female.equals(""))
+    {
+      p++;
+    }
+    if(satVerbal != null && !satVerbal.equals(""))
+    {
+      p++;
+    }
+    if(satMath != null && !satMath.equals(""))
+    {
+      p++;
+    }
+    if(expenses != null && !expenses.equals(""))
+    {
+      p++;
+    }
+    
+    if(financialAid != null && !financialAid.equals(""))
+    {
+      p++;
+    }
+    if(numberOfApplicants != null && !numberOfApplicants.equals(""))
+    {
+      p++;
+    }
+    if(admitted != null && !admitted.equals(""))
+    {
+      p++;
+    }
+    
+    if(enrolled != null && !enrolled.equals(""))
+    {
+      p++;
+    }
+    if(academicScale != null && !academicScale.equals(""))
+    {
+      p++;
+    }
+    if(socialScale != null && !socialScale.equals(""))
+    {
+      p++;
+    }
+    
+    if(qualityOfLifeScale != null && !qualityOfLifeScale.equals("")) 
+    {
+      p++;
+    }
+    
     //String[][] empArr = dblib.university_getNamesWithEmphases();
     for(int i =0 ; i < school.length; i++)
     {
       count = 0;
-      for(int j = 0; j < 16; j++)
-      {
-        if(school[i][j].equals(universityName))
+      //for(int j = 0; j < 16; j++)
+      //{
+        if(school[i][0].contains(universityName) && !universityName.equals("") && !universityName.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(state))
+        if(school[i][1].equals(state) && !state.equals("") && !state.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(location))
+        if(school[i][2].equals(location) && !location.equals("") && !location.equals(null))
         {
           count++;
         }
-        
-        if(school[i][j].equals(control))
+        if(school[i][3].equals(control) && !control.equals("") && !control.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(numberOfStudents))
+        if(school[i][4].equals(numberOfStudents) && !numberOfStudents.equals("") && !numberOfStudents.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(female))
+        if(school[i][5].equals(female) && !female.equals("") && !female.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(satVerbal))
+        if(school[i][6].equals(satVerbal) && !satVerbal.equals("") && !satVerbal.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(satMath))
+        if(school[i][7].equals(satMath) && !satMath.equals("") && !satMath.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(expenses))
+        if(school[i][8].equals(expenses) && !expenses.equals("") && !expenses.equals(null))
         {
           count++;
         }
-        
-        if(school[i][j].equals(financialAid))
+        if(school[i][9].equals(financialAid) && !financialAid.equals("") && !financialAid.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(numberOfApplicants))
+        if(school[i][10].equals(numberOfApplicants) && !numberOfApplicants.equals("") && !numberOfApplicants.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(admitted))
+        if(school[i][11].equals(admitted) && !admitted.equals("") && !admitted.equals(null))
         {
           count++;
         }
-        
-        if(school[i][j].equals(enrolled))
+        if(school[i][12].equals(enrolled) && !enrolled.equals("") && !enrolled.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(academicScale))
+        if(school[i][13].equals(academicScale) && !academicScale.equals("") && !academicScale.equals(null))
         {
           count++;
         }
-        if(school[i][j].equals(socialScale))
+        if(school[i][14].equals(socialScale) && !socialScale.equals("") && !socialScale.equals(null))
         {
           count++;
         }
-        
-        if(school[i][j].equals(qualityOfLifeScale)) 
+        if(school[i][15].equals(qualityOfLifeScale) && !qualityOfLifeScale.equals("") && !qualityOfLifeScale.equals(null)) 
         { 
           count++;
         }
-      }
+               
+      
       
       results[i][0] = school[i][0];
       results[i][1] = Integer.toString(count);
       //System.out.println(results[i][0] + " " + results[i][1]);
     }
-    for(Integer matchResults = 18; matchResults > 0; matchResults--)
-    {
+    //for(Integer matchResults = 18; matchResults > 0; matchResults--)
+    //{
       
       for (int x = 0; x < results.length; x++)
       {
         //System.out.println(results[x][0]);
-        if (results[x][1].equals(Integer.toString(matchResults)))
+        if (results[x][1].equals(Integer.toString(p)))
         {
 //          System.out.println(results[x][0]);
 //          printr[somethingCounter][0] = results[x][0];
 //          printr[somethingCounter][1] = results[x][1];
 //          somethingCounter++;
           schoolInfo.add(results[x][0]);
-          if(schoolInfo.size() == 5)
-            return schoolInfo;
+          
+          
         } 
       }
-    }
+    //}
     
     return schoolInfo;
   }
