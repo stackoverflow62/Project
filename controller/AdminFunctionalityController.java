@@ -41,7 +41,7 @@ public class AdminFunctionalityController
     if (true)//bananas
     {
       DatabaseController dbc = new DatabaseController();
-      stu = new Account(u, f, l, p, t, s);
+      stu = new Account(f, l,u, p, t, s);
       if (dbc.editUser(stu))
         System.out.println("The changes have been made.");
       else 

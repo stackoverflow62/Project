@@ -118,6 +118,7 @@ public class StudentInteraction
     results = searchController.search(universityName, state, location, control, numberOfStudents, female, satVerbal,
                                       satMath, expenses, financialAid, numberOfApplicants, admitted, enrolled,
                                       academicScale, socialScale, qualityOfLifeScale);
+    System.out.println("");
     for(String s : results)
     {
       System.out.println(s);
@@ -140,9 +141,20 @@ public class StudentInteraction
 //    String lastName = sc.nextLine();
 //    System.out.println("Enter new password:");
 //    String password = sc.nextLine();
+    String[] s = dbc.getUser(username);
+    System.out.println("Information for user " + s[2] + ": \n"
+    		+ "Firstname: " + s[0] + "\n"
+    				+ "Lastname: " + s[1] + "\n"
+    				+ "Password: " + s[3]);
     
     StudentFunctionalityController sfc = new StudentFunctionalityController();
     sfc.manageDetails(username, firstName, lastName, password);
+    
+    String[] n = dbc.getUser(username);
+    System.out.println("New information for user " + n[2] + ": \n"
+    		+ "Firstname: " + n[0] + "\n"
+    				+ "Lastname: " + n[1] + "\n"
+    				+ "Password: " + n[3]);
     
   }
   

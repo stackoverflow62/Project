@@ -25,10 +25,9 @@ public class CMCDriver {
     
     
     //user enters search
-    System.out.println("Search citeria user enters.");
-    System.out.println("Top 5 schools matching search:");
+    System.out.println("\nSearch Results:");
     john.search("AUBURN", "ALABAMA", "SMALL-CITY", "STATE", "35000", "21", "480", "545", "12468", "50", "5500", "90", "60", "2", "4", "4");
-    john.search("OF", "MINNESOTA", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+    john.search("OF", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
     System.out.println("");
    // University bard = new University();
     
@@ -46,7 +45,8 @@ public class CMCDriver {
     john.viewSavedUniversities("juser");
     
     //john.removeUniversity("John", "BARD");
-    
+    System.out.println("");
+    System.out.println("Recommended Schools");
     john.recommendedSchools();
     
     

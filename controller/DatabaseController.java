@@ -18,7 +18,6 @@ import entity.University;
 public class DatabaseController{
   
   UniversityDBLibrary dblib;
- 
   
   /**
    * Default Constructor
@@ -435,11 +434,34 @@ public class DatabaseController{
 	}
 	for(String names: recommendedSchools)
 	{
-		System.out.println("\n");
 		System.out.println(names);
 	}
   }
-}
+  public String[] getUser(String username)
+  {
+	String [] s;
+	String[][] users = this.getUsers();
+	for(int i = 0; i<users.length; i++)
+	{
+		if(users[i][2].equals(username))
+		{
+			s = new String[6];
+			s[0] = users[i][0];
+			s[1] = users[i][1];
+			s[2] = users[i][2];
+			s[3] = users[i][3];
+			s[4] = users[i][4];
+			s[5] = users[i][5];
+			return s;
+		} 
+	
+	}
+    s = new String[1];
+	s[0] = "No such user found";
+	return s;
+  }
+ 
+  }
   
   
 

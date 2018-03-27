@@ -77,9 +77,24 @@ public class AdminInteraction
 //    char type = sc.next().charAt(0);
 //    System.out.println("Enter new Status (Y or N):");
 //    char status = sc.next().charAt(0);
+	  String[] s = dbc.getUser(username);
+	    System.out.println("Information for user " + s[2] + ": \n"
+	    		+ "Firstname: " + s[0] + "\n"
+	    				+ "Lastname: " + s[1] + "\n"
+	    				+ "Password: " + s[3] + "\n"
+	    				+ "Type: " + s[4] + "\n"
+	    				+ "Status: " + s[5]);
     
     AdminFunctionalityController afc = new AdminFunctionalityController();
     afc.editUser(username, firstName, lastName, password, type, status);
+    
+    String[] n = dbc.getUser(username);
+    System.out.println("New information for user " + n[2] + ": \n"
+    		+ "Firstname: " + n[0] + "\n"
+    				+ "Lastname: " + n[1] + "\n"
+    				+ "Password: " + n[3] + "\n"
+    				+ "Type: " + n[4] + "\n"
+    				+ "Status: " +n[5]);
   }
   
   /*
