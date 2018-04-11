@@ -25,7 +25,7 @@ public class StudentFunctionalityController
    * @param l the last name of the student
    * @param p the password of the student
    */
-  public void manageDetails(String u, String f, String l, String p) 
+  public boolean manageDetails(String u, String f, String l, String p) 
   {
     
 //    Scanner scan = new Scanner(System.in);  
@@ -40,7 +40,17 @@ public class StudentFunctionalityController
 //    char s = 'A';
     if (true) /// bananas
     {
-      
+      if(u == null)
+    	  return false;
+      if(f == null)
+    	  return false;
+      if(l == null)
+    	  return false;
+      if(p == null)
+    	  return false;
+    	
+    	
+    	
       stu.setFirstname(f);
       stu.setLastname(l);
       stu.setPassword(p);
@@ -49,10 +59,18 @@ public class StudentFunctionalityController
       DatabaseController dbc = new DatabaseController();
       
       if (dbc.editUser(stu))
+      {
         System.out.println("The changes have been made.");
+      	return true;
+      }
       else 
+      {
         System.out.println("There was an error editing this user");
+      	return false;
+      }
+      
     }
+    return false;
     //else 
       //System.out.println("The changes have been cancelled");
     
@@ -170,6 +188,8 @@ public class StudentFunctionalityController
    * @return true if the school was remove, false otherwise
    */
   public boolean removeUniversity(String user, String school){
+	if(school == null)
+		return false;
     University removeUniversity = dbc.getUniversity(school);
     if(removeUniversity == null){
       return false;
