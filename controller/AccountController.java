@@ -74,8 +74,9 @@ public class AccountController{
   public Boolean checkType(String u){
     for(int i = 0; i< users.length; i++)
     {
-      if(users[i].equals(u)){
+      if(users[i][2].equals(u)){
         if(users[i][4].equals("a")){return true;}
+        else if(users[i][4].equals("u")) {return true;}
       }
     }
     return false;
@@ -108,7 +109,7 @@ public class AccountController{
   public Boolean activeUser(String u){
     for(int i = 0; i< users.length; i++)
     {
-      if(users[i].equals(u)){
+      if(users[i][2].equals(u)){
         if(users[i][5].equals("Y")){return true;}
       }
     }
@@ -117,9 +118,9 @@ public class AccountController{
   /**
    * Logs the user out of their account  
    */
-  public void logout()
+  public boolean logout()
   {
     ac = new Account(username, password);
-    ac.logOut();
+    return ac.logOut();
   }
 }

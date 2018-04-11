@@ -98,12 +98,13 @@ public class Account
    * This method checks whether or not a user is login.
    * If the user is log in then it will set the isLoggedIn to false
    */
-  public void logOut()
+  public boolean logOut()
   {
     if(isLoggedIn)
     {
       isLoggedIn = false;
     }
+    return isLoggedIn;
   }
   /**
    * Allows user to get the username of an account

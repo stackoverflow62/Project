@@ -136,6 +136,15 @@ public class DatabaseController{
    */ 
   public boolean deleteUniversity(String name){
     University deleteUniversity = getUniversity(name);
+    String[][] school = dblib.university_getUniversities();
+    int fail = 0;
+    for(int j = 0; j < school.length; j++)
+    {
+    	if(!school[j][0].equals(name))
+    		fail = -1;
+    }
+    if(fail == -1)
+    	return false;
     if(deleteUniversity == null){
       return false;
     }
@@ -143,7 +152,10 @@ public class DatabaseController{
     for(int i = 0; i < oldArray.size(); i++){
       dblib.university_removeUniversityEmphasis(deleteUniversity.getUniversityName(), oldArray.get(i));
     }
-    int failed = dblib.university_deleteUniversity(deleteUniversity.getUniversityName());
+    
+   
+    int failed = dblib.university_deleteUniversity(name);
+    
     if(failed != -1){
       return true;
     }
@@ -236,7 +248,7 @@ public class DatabaseController{
 	  }
 	  return majors;
   }
-  public void getRecommendedSchools(University u)
+  public boolean getRecommendedSchools(University u)
   {
 	ArrayList<String> recommendedSchools = new ArrayList<String>();
 	int numberOfStudentsMAX = 0;
@@ -263,6 +275,62 @@ public class DatabaseController{
 	int socialScaleMIN = 1;
 	int lifeScaleMAX = 5;
 	int lifeScaleMIN = 1;
+	
+	if(u == null)
+		return false;
+	
+	if(u.getUniversityName() == null)
+		return false;
+	
+	if(u.getUniversityState() == null)
+		  return false;
+	
+	if(u.getLocationType() == null)
+		  return false;
+	 
+	if(u.getControl() == null)
+		  return false;
+	  
+	if(u.getNumOfStudents() >= 0 || u.getNumOfStudents() < 4000000)
+		  return false;
+	  
+	if(u.getFemalePercentage() < 0 || u.getFemalePercentage() > 100)
+		  return false;
+	  
+	if(u.getSATVerbal() < 200 || u.getSATVerbal() > 800)
+		  return false;
+	   
+	if(u.getSATMath() < 200 || u.getSATMath() > 800)
+		  return false;
+	  
+	if(u.getExpenses() < 0 || u.getExpenses() >= 80000)
+		  return false;
+	
+	if(u.getFinancialAid() < 0 || u.getFinancialAid() > 100)
+		  return false;
+	  
+	if(u.getNumApplicants() < 0 || u.getNumApplicants() > 20000)
+		  return false;
+
+	if(u.getNumAdmitted() <= 0 || u.getNumAdmitted() > 100)
+		  return false;
+	
+	if(u.getNumEnrolled() <= 0 || u.getNumEnrolled() > 100)
+		  return false;
+	
+	if(u.getAcademicScale() <= 0 || u.getAcademicScale() > 5)
+		  return false;
+	  
+	if(u.getSocialScale() <= 0 || u.getSocialScale() > 5)
+		  return false;
+	  
+	if(u.getQualityOfLife() <= 0 || u.getQualityOfLife() > 5)
+		  return false;
+	  
+	
+	
+	
+	
 	
 	String[][] universities = dblib.university_getUniversities();
 	String[][] emphasis = dblib.university_getNamesWithEmphases();
@@ -436,6 +504,7 @@ public class DatabaseController{
 	{
 		System.out.println(names);
 	}
+	return true;
   }
   public String[] getUser(String username)
   {
