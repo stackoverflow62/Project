@@ -14,6 +14,8 @@ package entity;
 public class Student
 {
   private String userName;
+  private String password;
+  private char status;
   /**
   * Constructor, creates a new student with a username and password. 
   * Also sets the accoutn status of a user
@@ -25,6 +27,8 @@ public class Student
   public Student(String userName, String password, char status)
   {
     this.userName = userName;
+    this.password = password;
+    this.status = status;
   }
   ///****Allows for the Admin to set the user's account to active or deactivates a user's account***********
   /**
@@ -32,8 +36,10 @@ public class Student
    * 
    * @param status the status of a user
    */
-  public void setAccountStatus(char status)
+  public boolean setAccountStatus(char status)
   {
+	  this.status = status;
+	  return true;
   }
   
   /**
@@ -43,29 +49,17 @@ public class Student
   {
     return this.userName;
   }
-  /**
-   * Allows user to change first Name
-   * 
-   * @param firstName the first name of a user
-   */
-  public void setFirstname(String firstName)
-  {
-  }
-  /**
-   * Allows user to set last name of user account
-   * 
-   * @param lastName the last name of user
-   */
-  public void setLastname(String lastName)
-  {
-  }
+  
+  
   /**
    * Allows user to cahnge their password
    * 
    * @param password the password of the user
    */
-  public void setPassword(String password)
+  public boolean setPassword(String password)
   {
+	  this.password = password;
+	  return true;
   }
   
 }

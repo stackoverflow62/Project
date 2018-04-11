@@ -20,10 +20,13 @@ public class Administration
    * @param userName the username of the admin account. It should be unique
    * @param password the password associated with the username account
    */
+
   public Administration(String userName, String password)
   {
+	  
   }
   
+
   //Do we need getter/setter methods?
   
   

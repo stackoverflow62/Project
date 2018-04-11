@@ -204,8 +204,7 @@ public class StudentFunctionalityController
       if(failed != -1){
         return true;
       }
-      else
-        return false;
     }
+    return false;
   }
 }
